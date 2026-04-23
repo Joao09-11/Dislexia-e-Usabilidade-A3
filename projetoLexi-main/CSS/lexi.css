@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+:root {
+    --preto-lexi: #0D0D0D;      
+    --off-white: #FAF9F6;       
+    --cinza-suave: #EDEBE5;      
+    --fundo-maior: #FEFACA;    
+    --fundo-bloquinhos: #F9F667; 
+    --fundo-titulo-card: #F2ED51;
+    --fundo-menu: #FCF4A3;      
+    --fundo-topo: #E9E493;       
+    --cor-fonte-menu: #BC8E33;
+    --cor-hover-menu: #E0CB84; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fundo-maior);
+    color: var(--preto-lexi);
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.05em;
+    overflow-x: hidden;
+}
+
+/* 1. CABEÇALHO (Sincronizado com a Sidebar) */
+.main-header {
+    background-color: var(--fundo-topo);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px; /* Alinha o Lexi com o texto do menu abaixo */
+    border-bottom: 2px solid var(--cinza-suave);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-link {
+    font-weight: 900;
+    font-size: 2.2rem;
+    color: var(--preto-lexi);
+    text-decoration: none;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--cinza-suave);
+}
+
+/* 2. ESTRUTURA PRINCIPAL */
+.app-container {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+
+/* SIDEBARS (Com recuo para alinhamento vertical) */
+.sidebar, .pref-sidebar {
+    width: 350px; 
+    background-color: var(--fundo-menu);
+    padding: 60px 80px; /* O padding de 80px aqui alinha com o topo */
+    border-right: 2px solid var(--cinza-suave);
+}
+
+.nav-menu, .pref-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-menu button, .pref-menu li {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 0; /* Padding menor nas laterais para alinhar a letra */
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cor-fonte-menu);
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.nav-menu button:hover, .pref-menu li:hover, .pref-menu li.active {
+    color: var(--preto-lexi);
+    transform: translateX(5px);
+}
+
+/* 3. ÁREA DE CONTEÚDO (Com mais respiro) */
+.content-area {
+    flex: 1;
+    padding: 80px; /* Afastamento das bordas do navegador */
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 60px;
+}
+
+/* CARDS */
+.book-card {
+    border-radius: 35px;
+    overflow: hidden;
+    border: 2px solid var(--cinza-suave);
+    background-color: var(--off-white);
+    transition: 0.3s;
+}
+
+.card-title-area {
+    background-color: var(--fundo-titulo-card);
+    padding: 30px;
+    height: 120px;
+}
+
+.card-body-area {
+    background-color: var(--fundo-bloquinhos);
+    padding: 30px;
+}
+
+.book-cover {
+    width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 4. MODO PREFERÊNCIAS (OCUPA A TELA TODA) */
+.pref-layout {
+    display: flex;
+    width: 100%;
+    margin: -80px; /* Anula o padding da content-area para preencher tudo */
+    min-height: calc(100vh - 80px);
+}
+
+.pref-main {
+    flex: 1;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.pref-header {
+    display: flex;
+    gap: 25px;
+    height: 65px;
+}
+
+.search-fonts {
+    flex: 1;
+    background-color: var(--fundo-topo);
+    padding: 0 35px;
+    border-radius: 25px;
+    color: var(--cor-fonte-menu);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.2rem;
+}
+
+.btn-sugestao {
+    background-color: var(--fundo-topo);
+    border: none;
+    padding: 0 40px;
+    border-radius: 40px;
+    color: var(--cor-fonte-menu);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* BOX DO TEXTO */
+.preview-box {
+    flex: 1;
+    background-color: var(--fundo-bloquinhos);
+    border-radius: 40px;
+    border: 2px solid var(--cinza-suave);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+
+#texto-exemplo {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--preto-lexi);
+    max-width: 900px;
+}
+
+/* 5. FOOTER */
+.app-footer {
+    text-align: center;
+    padding: 60px;
+    background-color: var(--fundo-maior);
+    border-top: 1px solid var(--cinza-suave);
+    color: var(--cor-fonte-menu);
+    font-weight: bold;
+}
