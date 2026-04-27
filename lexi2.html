@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexi</title>
+    <link rel="stylesheet" href="CSS/lexi2.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-area"><a href="lexi2.html" class="logo-link" id="btn-logo-home">Lexi</a></div>
+
+            <div class="header-center"><img src="IMG/banner-livros.jpg" alt="Banner Lexi" class="header-banner"></div>
+
+            <div class="header-right"><img src="IMG/perfil.png" alt="Perfil" class="avatar-user"></div>
+        </div>
+    </header>
+
+    <div class="app-container">
+        
+        <aside class="sidebar" id="sidebar-principal">
+            <nav class="nav-menu">
+                <button >Pesquisar</button>
+                <button >Biblioteca</button>
+                <button >Arquivos</button>
+                <button >Sincronizar</button>
+                <button id="nav-ir-preferencias">Preferência</button>
+                <button >Configuração</button>
+            </nav>
+        </aside>
+
+        <aside class="sidebar" id="sidebar-preferencias" style="display: none;">
+            <nav class="nav-menu">
+                <li class="active">Tipografia</li>
+                <li>Cores E Contraste</li>
+                <li>Áudio</li>
+                <li>Ferramentas de auxilio</li>
+                <button id="btn-salvar-pref" style="margin-top: 30px; background-color: var(--laranja); color: white;">SALVAR</button>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+
+            <section id="tela-livros" class="book-grid">
+                
+                <article class="book-card">
+                    <div class="card-title-area"><h3>A Revolução dos Bichos</h3><p>George Orwell</p></div>                    
+                    <div class="card-body-area"><div class="book-cover"><img src="IMG/livro1.jpeg" alt="Capa do livro A Revolução dos Bichos">
+                            <span class="tag-formato">KINDLE</span>
+                    </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                        <h3>O Iluminado</h3>
+                        <p>Stephen King</p>
+                    </div>
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/livro2.jpeg" alt="Capa do livro O Iluminado">  
+                            <span class="tag-formato">KINDLE</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                       <h3>Futuro Ancestral</h3>
+                        <p>Ailton Krenak</p>
+                    </div>                    
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/livro3.jpeg" alt="Capa do livro Futuro Ancestral">
+                            <span class="tag-formato">KINDLE</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                   <div class="card-title-area">
+                        <h3>Crepúsculo</h3>
+                        <p>Stephenie Meyer</p>
+                    </div>                    
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/livro4.jpeg" alt="Capa do livro Crepúsculo">
+                            <span class="tag-formato">KINDLE</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                        <h3>Edital Concurso 2026</h3>
+                        <p>Documento Oficial</p>
+                    </div>
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/edital.jpeg" alt="Capa Documento Edital">
+                            <span class="tag-formato">PDF</span>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+
+            <section id="tela-preferencias" class="pref-layout" style="display: none;">
+                    <div class="pref-controles">
+                        <p class="label-secao">Fontes</p>
+                            <select id="seletor-fontes" class="font-dropdown">
+                                <option value="Verdana">Verdana (Padrão)</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Montserrat">Montserrat</option>
+                                <option value="Andika">Andika</option>
+                                <option value="Calibri">Calibri</option>
+                                <option value="OpenDyslexic">OpenDyslexic</option>
+                                <option value="Sylexiad">Sylexiad</option>
+                            </select>
+                        
+                        <p class="label-secao">Tamanho do Texto</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-texto">A -</button>
+                                <button class="btn-laranja-fixo" id="aumentar-texto">A +</button>
+                            </div>
+                            
+                            <p class="label-secao">Espaçamento entre Letras</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-letras">A - A</button>
+                                <button class="btn-laranja-fixo" id="aumentar-letras">A + A</button>
+                            </div>
+
+                            <p class="label-secao">Espaçamento das Linhas</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-linhas">↕ -</button>
+                                <button class="btn-laranja-fixo" id="aumentar-linhas">↕ +</button>
+                            </div>
+
+                            <p class="label-secao">Aliamento</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="align-left">Esquerda</button>
+                                <button class="btn-laranja-fixo" id="align-justify">Justificado</button>
+                            </div>
+                   
+                    </div>
+                        
+                    <div class="pref-preview">
+                        <div class="preview-box">
+                        <p id="texto-exemplo">
+                            "De três coisas eu estava convicta. Primeira, o Edward era um vampiro. 
+                            Segunda, havia uma parte dele, e eu não sabia quão dominante essa parte poderia ser, 
+                            que anseia pelo meu sangue. E terceira, eu estava incondicionalmente e 
+                            irrevogavelmente apaixonada por ele."
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="app-footer">
+        <p>Lexi &copy; 2026 | Projeto A3</p>
+    </footer>
+
+    <script>
+
+        //troca de telas Nvegação
+
+        const sPrincipal = document.getElementById('sidebar-principal');
+        const sPref = document.getElementById('sidebar-preferencias');
+
+        const tLivros = document.getElementById('tela-livros');
+        const tPref = document.getElementById('tela-preferencias');
+
+// Navegação: Ir para Preferências
+        document.getElementById('nav-ir-preferencias').onclick = () => {
+            sPrincipal.style.display = 'none';
+            tLivros.style.display = 'none';
+            sPref.style.display = 'block';
+            tPref.style.display = 'flex';
+        };
+
+// Navegação: Voltar (Botão Salvar e Logo)
+        const voltarHome = () => {
+            sPref.style.display = 'none';
+            tPref.style.display = 'none';
+            sPrincipal.style.display = 'block';
+            tLivros.style.display = 'grid';
+        };
+        document.getElementById('btn-salvar-pref').onclick = voltarHome;
+        document.getElementById('btn-logo-home').onclick = (e) => {
+            e.preventDefault();
+            voltarHome();
+        };
+
+       
+        //lógica de Ajustes de Texto
+
+        const texto = document.getElementById('texto-exemplo')
+        let sz = 24, ls = 0.12, lh = 1.5;
+       //sz tamanho atual, ls espaco da letra atual e lh espaco da linha atual 
+                                                                    //    
+        document.getElementById('aumentar-texto').onclick = () => { sz += 2; texto.style.fontSize = sz + 'px'; };
+        document.getElementById('diminuir-texto').onclick = () => { if(sz > 12) sz -= 2; texto.style.fontSize = sz + 'px';};
+
+        document.getElementById('aumentar-letras').onclick = () => { ls += 0.05; texto.style.letterSpacing = ls + 'em';};
+        document.getElementById('diminuir-letras').onclick = () => { if(ls > 0) ls -= 0.05; texto.style.letterSpacing = ls + 'em';};
+
+        document.getElementById('aumentar-linhas').onclick = () => { lh += 0.2; texto.style.lineHeight = lh;};
+        document.getElementById('diminuir-linhas').onclick = () => { if(lh > 1.2) lh -= 0.2; texto.style.lineHeight = lh;};
+
+        document.getElementById('align-left').onclick = () => {texto.style.textAlign = 'left';};
+        document.getElementById('align-justify').onclick = () => {texto.style.textAlign = 'justify';};
+
+        document.getElementById('seletor-fontes').onchange = (e) => {
+            texto.style.fontFamily = e.target.value;    
+        };
+    </script>
+
+</body>
+</html>
