@@ -110,6 +110,7 @@
             <section id="tela-preferencias" class="pref-layout" style="display: none;">
                     <div class="pref-controles">
                         <p class="label-secao">Fontes</p>
+<!--Estrutura de Formulário: A tag 'select' funciona como um container para as opções de configuração de tipografia do site."--->         
                             <select id="seletor-fontes" class="font-dropdown">
                                 <option value="Verdana">Verdana (Padrão)</option>
                                 <option value="Arial">Arial</option>
@@ -167,7 +168,7 @@
     <script>
 
         //troca de telas Nvegação
-
+////const é usada para criar variáveis que não mudam de "lugar"
         const sPrincipal = document.getElementById('sidebar-principal');
         const sPref = document.getElementById('sidebar-preferencias');
 
@@ -180,31 +181,34 @@
             tLivros.style.display = 'none';
             sPref.style.display = 'block';
             tPref.style.display = 'flex';
-        };
+        }; //.display para esconder a tela e mostrar outra
+            //.onclick fica esperando o usuario clicar no botão p fzr a função
+            //() => {...} é arrow function 
 
-// Navegação: Voltar (Botão Salvar e Logo)
+// Navegação: Voltar logo
         const voltarHome = () => {
             sPref.style.display = 'none';
             tPref.style.display = 'none';
             sPrincipal.style.display = 'block';
             tLivros.style.display = 'grid';
         };
-        document.getElementById('btn-salvar-pref').onclick = voltarHome;
+      
         document.getElementById('btn-logo-home').onclick = (e) => {
-            e.preventDefault();
-            voltarHome();
+            e.preventDefault(); //'e' representa o clique. preventDefault() evita que a página recarregue ao cilcar no link.
+            voltarHome(); //chama a função personalizada p/ troca as telas e mostrar a biblioteca
         };
 
        
         //lógica de Ajustes de Texto
 
-        const texto = document.getElementById('texto-exemplo')
-        let sz = 24, ls = 0.12, lh = 1.5;
-       //sz tamanho atual, ls espaco da letra atual e lh espaco da linha atual 
-                                                                    //    
-        document.getElementById('aumentar-texto').onclick = () => { sz += 2; texto.style.fontSize = sz + 'px'; };
-        document.getElementById('diminuir-texto').onclick = () => { if(sz > 12) sz -= 2; texto.style.fontSize = sz + 'px';};
+        const texto = document.getElementById('texto-exemplo');
+        let sz = 24, ls = 0.12, lh = 1.5;  //usamos let pq esse valores vão mudar
+       //sz tamanho atual, ls espaco da letra atual e lh espaco da linha atual //
 
+        document.getElementById('aumentar-texto').onclick = () => { sz += 2; texto.style.fontSize = sz + 'px'; }; // aplica o novo tamanho ao CSS do texto
+        // soma 2 ao valor atual da variavel 'sz' sz + 2 = sz
+        document.getElementById('diminuir-texto').onclick = () => { if(sz > 12) sz -= 2; texto.style.fontSize = sz + 'px';};
+                                                                            //sz = sz - 2;
         document.getElementById('aumentar-letras').onclick = () => { ls += 0.05; texto.style.letterSpacing = ls + 'em';};
         document.getElementById('diminuir-letras').onclick = () => { if(ls > 0) ls -= 0.05; texto.style.letterSpacing = ls + 'em';};
 
@@ -214,9 +218,23 @@
         document.getElementById('align-left').onclick = () => {texto.style.textAlign = 'left';};
         document.getElementById('align-justify').onclick = () => {texto.style.textAlign = 'justify';};
 
-        document.getElementById('seletor-fontes').onchange = (e) => {
-            texto.style.fontFamily = e.target.value;    
-        };
+
+        //salvamento
+const salvarPreferencias = () => {
+    const configuracoes = {
+        tamanho: sz,
+        espaco: ls,
+        altura: lh,
+        fonte: document.getElementById('seletor-fontes').value
+    };
+    localStorage.setItem('user_prefs', JSON.stringify(configuracoes));
+};
+document.getElementById('btn-salvar-pref').onclick = salvarPreferencias;
+
+   // O evento 'onchange' detecta quando você escolhe uma opção diferente na lista (dropdown).
+    document.getElementById('seletor-fontes').onchange = (e) => {
+        texto.style.fontFamily = e.target.value; // 'e.target.value' pega o valor (nome da fonte) da opção que você acabou de clicar. 
+}; // 'fontFamily' aplica essa fonte ao texto de exemplo instantaneamente.
     </script>
 
 </body>

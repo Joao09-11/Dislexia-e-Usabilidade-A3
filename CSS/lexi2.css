@@ -2,22 +2,22 @@
     font-family: 'OpenDyslexic';
     src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/dist/woff/OpenDyslexic-Regular.woff') format('woff');
 }
-
+/*:root é um seletor especial que guarda as variáveis do projeto. */
 :root {
-    /* Cores Intocáveis Lexi */
-    --fundo-amarelo: #F2ED51;     
-    --header-dislexia: #E9E493;
+    /* Cores */
+    --fundo-amarelo: #F2ED51;  /*'--' define uma variável*/
+    --header-dislexia: #fff598;
     --azul-profundo: #1B365D;
     --laranja: #E6925B;  
     --areia: #FAF9F6;
     --preto-lexi: #0d0d0d;
     --preview-fundo: #fff598;
 }
-
+/* O '*' é o seletor universal. Ele aplica as regras a TODAS as tags do HTML. */
 * { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
+    margin: 0; /* Remove o espaço externo padrão que o navegador coloca. */
+    padding: 0; /* Remove o espaço interno padrão. */
+    box-sizing: border-box; /* Garante que a largura da caixa inclua a borda e o preenchimento. */
 }
 
 body {
@@ -30,8 +30,9 @@ body {
 /* =========================================
    HEADER
    ========================================= */
+/* O '.' indica uma CLASSE. Vários elementos podem usar essa mesma regra. */
 .main-header {
-    background-color: var(--header-dislexia);
+    background-color: var(--header-dislexia); /* 'var' chama a cor guardada no :root. */
     height: 110px;
     display: flex;
     justify-content: center;
@@ -46,14 +47,25 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}/* 'space-between' empurra o logo para a esquerda e o perfil para a direita. */
+
+.header-banner {
+    width: 60%;       /* Faz a imagem ocupar o espaço disponível */
+    max-width: 600px;  /* Ajuste esse valor (ex: 700px, 800px) para aumentar o tamanho real */
+    height: auto;      /* Mantém a proporção para não achatar */
+    display: block;    /* Remove espaços vazios na base da imagem */
+    margin: 0 auto;    /* Garante que ela fique centralizada no meio do header */
 }
 
 /* LOGO FIXA EM OPENDYSLEXIC */
-.logo-link { 
+
+
+.logo-link { /* 'font-family' define a fonte.*/
     font-family: 'OpenDyslexic', sans-serif; 
     font-size: 2.8rem; 
     color: var(--preto-lexi); 
-    text-decoration: none; 
+    text-decoration: none; /* Remove o sublinhado azul padrão dos links. */
+    letter-spacing: 1.5px;
 }
 
 .header-center { 
@@ -63,8 +75,11 @@ body {
 }
 
 .header-banner { 
-    height: 60px; 
+    height: 90px; 
+    width: auto;
     border-radius: 10px; 
+    display: block;
+    margin: 0 auto;
 }
 
 /* AVATAR SEM BORDA */
@@ -130,9 +145,9 @@ body {
 }
 
 .book-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 320px);
-    gap: 50px;
+    display: grid; /* sistema de grid para criar colunas e linhas. */
+    grid-template-columns: repeat(auto-fit, 320px); /*cria colunas de 320px que se ajustam sozinhas ao tamanho da tela. */
+    gap: 50px; /*espaçamentos dos cards*/
     padding: 60px;
     justify-content: center; /* Mantém os cards centralizados */
     align-content: start;
@@ -225,10 +240,11 @@ body {
     color: var(--areia);
     border-radius: 10px;
     font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
+    cursor: pointer; /* faz a seta do mouse virar a mãozinha */
+    transition: 0.2s;/*faz a mudança de cor ser suave*/
 }
 
+/* ':hover' é um pseudo-estado que define o que acontece quando o mouse passa por cima. */
 .btn-laranja-fixo:hover { 
     background-color: var(--azul-profundo);
 }
@@ -248,9 +264,9 @@ body {
     background: var(--preview-fundo);
     width: 100%;
     padding: 50px;
-    border-radius: 30px;
+    border-radius: 30px; /*arredonda os cantos da caixa de texto*/
     border: 2px solid rgba(27,54,93,0.1);
-    min-height: 450px;
+    min-height: 450px; /* garante que a caixa nunca seja menor que 450px, mesmo com pouco texto. */
 }
 
 /* =========================================

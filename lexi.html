@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexi - Acessibilidade</title>
+    <link rel="stylesheet" href="CSS/lexi.css">
+</head>
+<body>
+<header class="main-header">
+        <div class="logo-area">
+            <a href="lexi.html" class="logo-link">Lexi</a>
+        </div>
+        <div class="header-right">
+            <img src="IMG/perfil.png" alt="Perfil" class="avatar">
+        </div>
+    </header>
+
+    <div class="app-container">
+
+        <aside class="sidebar" id="sidebar-principal">
+            <nav class="nav-menu">
+                <button>Pesquisa</button>
+                <button>Salvo</button>
+                <button>Adaptar</button>
+                <button id="btn-preferencia">Preferência</button>
+                <button>Configuração</button>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+
+            <section id="tela-livros" class="book-grid">
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                        <h3>A Revolução dos Bichos</h3>
+                        <p>George Orwell</p>
+                    </div>                    
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                        <img src="IMG/livro1.jpeg" alt="Capa do livro A Revolução dos Bichos">
+                        <span class="kindle-tag">KINDLE</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                        <h3>O Iluminado</h3>
+                        <p>Stephen King</p>
+                    </div>
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                        <img src="IMG/livro2.jpeg" alt="Capa do livro O Iluminado">
+                        <span class="kindle-tag">KINDLE</span>  
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                       <h3>Futuro Ancestral</h3>
+                        <p>Ailton Krenak</p>
+                     </div>                    
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                        <img src="IMG/livro3.jpeg" alt="Capa do livro Futuro Ancestral">
+                        <span class="kindle-tag">KINDLE</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                   <div class="card-title-area">
+                        <h3>Crepúsculo</h3>
+                        <p>Stephenie Meyer</p>
+                    </div>                    
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                        <img src="IMG/livro4.jpeg" alt="Capa do livro Crepúsculo">
+                        <span class="kindle-tag">KINDLE</span>
+                        </div>
+                    </div>
+                </article>                
+            </section>
+
+            <section id="tela-preferencias" class="pref-layout" style="display: none;">
+
+                <aside class="pref-sidebar">
+                    <ul class="pref-menu">
+                        <li class="active"> Tipografia</li>
+                        <li>Espaçamento e organização</li>
+                        <li>Cores e contraste</li>
+                        <li>Tamanho do texto</li>
+                        <li>Recurso extras</li>
+                    </ul>
+                </aside>
+
+                <main class="pref-main">
+                    <header class="pref-header">
+                        <div class="search-fonts">
+                            🔍 Fontes
+                        </div>
+                        <button class="btn-sugestao">Sugestão</button>
+                    </header>
+                    <div class="preview-box">
+                        <p id="texto-exemplo">
+                            "De três coisas eu estava convicta. Primeira, o Edward era um vampiro. 
+                            Segunda, havia uma parte dele, e eu não sabia quão dominante essa parte poderia ser, 
+                            que anseia pelo meu sangue. E terceira, eu estava incondicionalmente e 
+                            irrevogavelmente apaixonada por ele."
+                        </p>
+                    </div>
+                </main>
+
+            </section>
+        </main>
+    </div>
+     <footer class="app-footer">
+     <p>Lexi &copy; 2026 | A3 de Acessibilidade Digital</p>
+     </footer>
+
+     <script>
+        const btnPref = document.getElementById('btn-preferencia');
+        const btnInicio = document.getElementById('voltar-inicio');
+
+        const sidebarPrincipal = document.getElementById('sidebar-principal');
+        const telaLivros  = document.getElementById('tela-livros');
+        const telaPref = document.getElementById('tela-preferencias');
+
+// AO CLICAR EM PREFERÊNCIA
+        btnPref.addEventListener('click', () => {
+            sidebarPrincipal.style.display = 'none'; // Esconde a lateral antiga
+            telaLivros.style.display = 'none';        // Esconde os livros
+            telaPref.style.display = 'flex';         // Mostra o painel novo
+        });
+
+        // AO CLICAR NO LOGO (VOLTAR)
+        btnInicio.addEventListener('click', (e) => {
+            e.preventDefault();
+            telaPref.style.display = 'none';
+            sidebarPrincipal.style.display = 'block';
+            telaLivros.style.display = 'grid';
+        });
+
+     </script>
+
+</body>
+</html>
