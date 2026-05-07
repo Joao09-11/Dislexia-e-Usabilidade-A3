@@ -1,0 +1,274 @@
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('https://cdn.jsdelivr.net/npm/open-dyslexic@1.0.3/dist/woff/OpenDyslexic-Regular.woff') format('woff');
+}
+
+:root { /*:root é um seletor especial que guarda as variáveis do projeto. */
+    /* Cores */
+    --fundo-amarelo: #FDF5C9; 
+    --header-dislexia: #F2E394;
+    --azul-profundo: #4A76A8; 
+    --laranja: #E6925B;  
+    --areia: #FAF9F6;
+    --preto-lexi: #0D0D0D; 
+    --preview-fundo: #FFF9E6;
+    --cor-destaque: #FFE066;
+    --espaco-padrao: 10px;
+}
+
+* { /* O '*' é o seletor universal. Ele aplica as regras a TODAS as tags do HTML. */
+    margin: 0; /* Remove o espaço externo padrão que o navegador coloca. */
+    padding: 0; /* Remove o espaço interno padrão. */
+    box-sizing: border-box; /* Garante que a largura da caixa inclua a borda e o preenchimento. */
+}
+
+body {
+    background-color: var(--fundo-amarelo); 
+    font-family: 'Verdana', sans-serif; 
+    color: var(--preto-lexi);
+    overflow-x: hidden;
+    /*espaço em td site*/
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+    line-height: 1.5;
+}
+
+/* BOTÕES E GRID */
+#btn-salvar-pref{
+    background-color: var(--laranja); 
+    color: var(--areia);
+    margin-top: 30px; 
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.btn-group { 
+    display: flex; 
+    gap: var(--espaco-padrao); 
+}
+
+.btn-tema{ width: 60%;}
+
+.btn-group-temas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espaco-padrao);
+    margin-bottom: 20px;
+}
+
+.btn-laranja-fixo, .btn-tema { 
+    height: 45px;
+    background-color: var(--laranja);
+    border:none;
+    color: var(--areia);
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.btn-laranja-fixo{ width: 85px; font-size: 0.8rem;}
+
+.btn-laranja-fixo:hover, .btn-tema:hover { /* ':hover' é um pseudo-estado que define o que acontece quando o mouse passa por cima. */
+    background-color: var(--azul-profundo);
+}
+
+/* TEMAS  */
+
+body.tema-caramelo {
+    --fundo-amarelo: #FDF8E7;    
+    --preview-fundo: #FFF4B3;    
+    --header-dislexia: #F2DF80;  
+    --areia: #FFFCF2;            
+    --laranja: #DDA13E;          
+    --azul-profundo: #B07D2B;    
+    --preto-lexi: #261C00; 
+    --cor-destaque: #F4A261;      
+}
+
+body.tema-barro {
+    --fundo-amarelo: #FDF1E6;    
+    --preview-fundo: #FFDAB9;    
+    --header-dislexia: #F0B28C;  
+    --areia: #FFF6ED;            
+    --laranja: #DF8050;           
+    --azul-profundo: #BF5D30;     
+    --preto-lexi: #331408; 
+    --cor-destaque: #E9C46A;       
+}
+
+body.tema-arara {
+    --fundo-amarelo: #EAF2F8;     
+    --preview-fundo: #D0E1F0;     
+    --header-dislexia: #A9CCE3;   
+    --areia: #F4F9F9;             
+    --laranja: #5499C7;           
+    --azul-profundo: #2980B9;     
+    --preto-lexi: #0A192F; 
+    --cor-destaque: #FFF4B3;       
+}
+
+body.tema-cinza {
+    --fundo-amarelo: #F4F4F4;    
+    --preview-fundo: #E8E8E8;    
+    --header-dislexia: #DDDDDD;   
+    --areia: #FAFAFA;             
+    --laranja: #888888;           
+    --azul-profundo: #555555;     
+    --preto-lexi: #222222; 
+    --cor-destaque: #FFF4B3;      
+}
+
+body.tema-noturno {
+    --fundo-amarelo: #121212;     
+    --preview-fundo: #1E1E1E;     
+    --header-dislexia: #181818;   
+    --areia: #E0E0E0;             
+    --laranja: #2A2A2A;           
+    --azul-profundo: #333333;     
+    --preto-lexi: #F0F0F0; 
+    --cor-destaque: #8C731F;       
+}
+
+/* ESTRUTURA GERAL (Header, Sidebar, Layout)*/
+
+.main-header { /* O '.' indica uma CLASSE. Vários elementos podem usar essa mesma regra. */
+    background-color: var(--header-dislexia); /* 'var' chama a cor guardada no :root. */
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}/* 'space-between' empurra o logo para a esquerda e o perfil para a direita. */
+
+.logo-link {
+    font-family: 'OpenDyslexic', sans-serif; 
+    font-size: 2.8rem; 
+    color: var(--preto-lexi); 
+    text-decoration: none; /* Remove o sublinhado azul padrão dos links. */
+}
+
+.avatar-user { 
+    width: 55px; 
+    height: 55px; 
+    border-radius: 50%;
+}
+
+.app-container { 
+    display: flex; 
+    min-height: calc(100vh - 110px);
+}
+
+.sidebar { 
+    width: 300px; /* Largura padrão e inalterável */
+    background-color: var(--azul-profundo);
+}
+
+.nav-menu li, .nav-menu button { /* Aplica o mesmo estilo seja <button> ou <li> */
+    width: 100%;
+    padding: 25px 40px; 
+    border: none;
+    background: none;
+    color: var(--areia);
+    font-family: 'Verdana', sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav-menu li.active { border-left: 10px solid var(--laranja); background-color: rgba(255,255,255,0.15); }
+
+.nav-menu button:hover, .nav-menu li:hover { background-color: rgba(255,255,255,0.1); }
+
+.content-area { flex: 1; display: flex; flex-direction: column;}
+
+.book-grid {
+    display: grid; /* sistema de grid para criar colunas e linhas. */
+    grid-template-columns: repeat(auto-fit, 320px); /*cria colunas de 320px que se ajustam sozinhas ao tamanho da tela. */
+    gap: 50px; /*espaçamentos dos cards*/
+    padding: 60px;
+    justify-content: center; /* Mantém os cards centralizados */
+}
+
+.book-card {
+    background-color: var(--laranja);
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.card-title-area { padding: 20px; color: var(--areia);}
+.card-body-area { padding: 15px; background-color: rgba(255,255,255,0.15); }
+
+.book-cover { border-radius: 15px; overflow: hidden; height: 350px; position: relative;}
+.book-cover img { width: 100%; height: 100%; object-fit: cover;}
+
+.tag-formato { position: absolute; bottom: 10px; right: 10px; background-color: var(--preto-lexi); color: var(--areia); padding: 5px 10px; border-radius: 5px; font-weight: bold;}
+
+.pref-layout { display: flex; width: 100%; padding: 60px; gap: 50px;}
+.pref-controles { width: 300px; display: flex; flex-direction: column;}
+
+.label-secao {
+    color: var(--azul-profundo); 
+    font-weight: 900; 
+    font-size: 0.8rem; 
+    margin: 25px 0 10px;
+    text-transform: uppercase;
+}
+
+.font-dropdown{ width: 100%; padding: 15px; border-radius: 12px; border: 2px solid var(--azul-profundo); background: var(--areia); color: var(--azul-profundo); font-weight: bold;}
+
+.pref-preview { flex: 1; display: flex;}
+.preview-box {
+    background: var(--preview-fundo);
+    width: 100%;
+    padding: 50px;
+    border-radius: 30px; /*arredonda os cantos da caixa de texto*/
+    min-height: 450px; /* garante que a caixa nunca seja menor que 450px, mesmo com pouco texto. */
+    border: 2px solid rgba(0,0,0,0.05);
+}
+
+/* RODAPÉ*/
+.app-footer {
+    text-align: center;
+    padding: 30px;
+    font-weight: bold;
+}
+
+/* CONTROLE DE BRILHO*/
+.brilho-controle{ width: 80%; cursor: pointer;}
+
+#pelicula-brilho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0; /* Começa em 0 (brilho máximo) */
+    pointer-events: none; /* Deixa você clicar nas coisas através dela */
+    z-index: 9999;
+}
+
+/* MARCA TEXTO*/
+.palavra-destacada {
+    background-color: var(--cor-destaque);
+    color: var(--preto-lexi);
+    border-radius: 4px; /* Cantinhos arredondados no marca-texto ficam super modernos */
+    padding: 2px 4px; /* Dá um respiro pro amarelo não colar na letra */
+    transition: background-color 0.3s;
+}

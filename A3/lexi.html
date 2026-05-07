@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexi</title>
+    <link rel="stylesheet" href="CSS/lexi.css">
+</head>
+<body>
+<div id="pelicula-brilho"></div>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-area"><a href="lexi.html" class="logo-link" id="btn-logo-home">Lexi</a></div>
+            <div class="header-right"><img src="IMG/perfil.png" alt="Perfil" class="avatar-user"></div>
+        </div>
+    </header>
+
+    <div class="app-container">
+
+        <aside class="sidebar" id="sidebar-principal">
+            <nav class="nav-menu">
+                <button >Pesquisar</button>
+                <button >Biblioteca</button>
+                <button >Arquivos</button>
+                <button >Sincronizar</button>
+                <button id="nav-ir-preferencias">Preferência</button>
+                <button >Configuração</button>
+            </nav>
+        </aside>
+
+        <aside class="sidebar" id="sidebar-preferencias" style="display: none;">
+            <nav class="nav-menu">
+                <li class="active" id="aba-tipografia">Tipografia</li>
+                <li id="aba-cores">Cores E Contraste</li>
+                <li id="aba-audio">Áudio</li>
+                <li>Ferramentas de auxilio</li>
+                <button id="btn-salvar-pref">SALVAR</button>
+            </nav>
+        </aside>
+
+        <main class="content-area">
+
+            <section id="tela-livros" class="book-grid">
+                <article class="book-card">
+                    <div class="card-title-area"><h3>A Revolução dos Bichos</h3><p>George Orwell</p></div>                    
+                    <div class="card-body-area"><div class="book-cover"><img src="IMG/livro1.jpeg" alt="Capa do livro A Revolução dos Bichos">
+                            <span class="tag-formato">KINDLE</span></div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                        <h3>O Iluminado</h3>
+                        <p>Stephen King</p>
+                    </div>
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/livro2.jpeg" alt="Capa do livro O Iluminado">  
+                            <span class="tag-formato">KINDLE</span></div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                       <h3>Futuro Ancestral</h3>
+                        <p>Ailton Krenak</p>
+                    </div>                    
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/livro3.jpeg" alt="Capa do livro Futuro Ancestral">
+                            <span class="tag-formato">KINDLE</span></div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                   <div class="card-title-area">
+                        <h3>Crepúsculo</h3>
+                        <p>Stephenie Meyer</p>
+                    </div>                    
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/livro4.jpeg" alt="Capa do livro Crepúsculo">
+                            <span class="tag-formato">KINDLE</span></div>
+                    </div>
+                </article>
+
+                <article class="book-card">
+                    <div class="card-title-area">
+                        <h3>Edital Concurso 2026</h3>
+                        <p>Documento Oficial</p>
+                    </div>
+                    <div class="card-body-area">
+                        <div class="book-cover">
+                            <img src="IMG/edital.jpeg" alt="Capa Documento Edital">
+                            <span class="tag-formato">PDF</span></div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- TELA DE PREFERÊNCIAS -->
+            <section id="tela-preferencias" class="pref-layout" style="display: none;">
+            
+                <div class="pref-controles">
+                
+                    <div id="secao-tipografia">
+                        <p class="label-secao">Fontes</p>
+                            <select id="seletor-fontes" class="font-dropdown">
+                                <option value="Verdana">Verdana (Padrão)</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Montserrat">Montserrat</option>
+                                <option value="Andika">Andika</option>
+                                <option value="Calibri">Calibri</option>
+                                <option value="OpenDyslexic">OpenDyslexic</option>
+                                <option value="Sylexiad">Sylexiad</option>
+                            </select>
+                        
+                            <p class="label-secao">Tamanho do Texto</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-texto">A -</button>
+                                <button class="btn-laranja-fixo" id="aumentar-texto">A +</button>
+                            </div>
+                            
+                            <p class="label-secao">Espaçamento entre Letras</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-letras">A - A</button>
+                                <button class="btn-laranja-fixo" id="aumentar-letras">A + A</button>
+                            </div>
+
+                            <p class="label-secao">Espaçamento das Linhas</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-linhas">↕ -</button>
+                                <button class="btn-laranja-fixo" id="aumentar-linhas">↕ +</button>
+                            </div>
+
+                            <p class="label-secao">Aliamento</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="align-left">Esquerda</button>
+                                <button class="btn-laranja-fixo" id="align-justify">Justificado</button>
+                            </div>
+                        </div><!-- FIM DA CAIXA DE TIPOGRAFIA-->
+
+                    <!--  CORES E CONTRASTE -->
+                    <div id="secao-cores" style="display: none;">
+                        <p class="label-secao">Temas</p>
+                        <div class="btn-group-temas">
+                            <button class="btn-tema" id="tema-padrao">Colorido (Padrão)</button>
+                            <button class="btn-tema" id="tema-caramelo">Cachorro Caramelo</button>
+                            <button class="btn-tema" id="tema-barro">Filtro de Barro</button>
+                            <button class="btn-tema" id="tema-arara">Arara Azul</button>
+                            <button class="btn-tema" id="tema-cinza">Cinza</button>
+                            <button class="btn-tema" id="tema-noturno">Noturno</button>
+                        </div>
+
+                        <label class="label-secao">Brilho da Tela</label>
+                         <input type="range" id="slider-brilho" class="brilho-controle" min="0" max="0.7" step="0.1" value="0">
+                    </div>
+
+                    <div id="secao-audio" style="display: none;">
+    
+                    <p class="label-secao">Controles de Leitura</p>
+                    <div class="btn-group">
+                        <button class="btn-laranja-fixo" id="btn-play">Tocar</button>
+                        <button class="btn-laranja-fixo" id="btn-pause">Pausar</button>
+                        <button class="btn-laranja-fixo" id="btn-stop">Parar</button>
+                    </div>
+
+                    <p class="label-secao">Tipo de Voz</p>
+                    <select id="seletor-voz" class="font-dropdown">
+                        <option value="pt-BR-fem">Feminina (Padrão)</option>
+                        <option value="pt-BR-masc">Masculina</option>
+                    </select>
+
+                    <p class="label-secao">Velocidade da Voz</p>
+                    <div class="btn-group">
+                        <button class="btn-laranja-fixo" id="vel-lenta">0.5x</button>
+                        <button class="btn-laranja-fixo" id="vel-normal">1.0x</button>
+                        <button class="btn-laranja-fixo" id="vel-rapida">1.5x</button>
+                        <button class="btn-laranja-fixo" id="vel-rapida2x">2x</button>
+                    </div>
+
+                    <p class="label-secao">Marca Texto</p>
+                    <div class="btn-group">
+                        <button class="btn-laranja-fixo" id="destaque-on" style="width: 30%;">Ligar</button>
+                        <button class="btn-laranja-fixo" id="destaque-off" style="width: 30%;">Desligar</button>
+                    </div>
+                </div>
+                </div> <!-- FIM DOS CONTROLES -->   
+
+                    <div class="pref-preview">
+                        <div class="preview-box">
+                        <p id="texto-exemplo">
+                            "De três coisas eu estava convicta. Primeira, o Edward era um vampiro. 
+                            Segunda, havia uma parte dele, e eu não sabia quão dominante essa parte poderia ser, 
+                            que anseia pelo meu sangue. E terceira, eu estava incondicionalmente e 
+                            irrevogavelmente apaixonada por ele."
+                        </p>
+                        </div>
+                    </div> 
+                    
+            </section>
+        </main>
+    </div>
+
+    <footer class="app-footer">
+        <p>Lexi &copy; 2026 | Projeto A3</p>
+    </footer>
+
+    <script src="SCRIPT/lexi.js"></script>
+</body>
+</html>
