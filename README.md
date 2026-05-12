@@ -38,6 +38,12 @@ index.html
 
 README.md 
 
+## Versões do lexi
+
+- lexi.html
+
+- lexi2.html
+
 ## Recursos de acessibilidade
 - Alto contraste
 - Espaçamento de texto otimizado
