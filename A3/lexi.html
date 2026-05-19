@@ -8,11 +8,19 @@
 </head>
 <body>
 <div id="pelicula-brilho"></div>
-
     <header class="main-header">
         <div class="header-content">
+            <button id="btn-abrir-menu" class="icone-menu">☰</button>
             <div class="logo-area"><a href="lexi.html" class="logo-link" id="btn-logo-home">Lexi</a></div>
-            <div class="header-right"><img src="IMG/perfil.png" alt="Perfil" class="avatar-user"></div>
+
+            <div class="header-right" style="display: flex; gap: 15px; align-items: center;">
+            <a href="login.html" class="btn-acesso-header" style="text-decoration: none;">Acessar</a>
+            <button class="btn-cadastro-header">Cadastrar</button>
+            
+            <a href="login.html" class="icone-perfil-mobile" style="display: none; text-decoration: none;">
+                <img src="IMG/user-header.png" alt="Acessar conta" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; display: block;">
+            </a>
+            </div>
         </div>
     </header>
 
@@ -20,8 +28,8 @@
 
         <aside class="sidebar" id="sidebar-principal">
             <nav class="nav-menu">
-                <button >Pesquisar</button>
-                <button >Biblioteca</button>
+                <button id="nav-ir-pesquisar">Pesquisar</button>
+                <button id="nav-ir-biblioteca">Biblioteca</button>
                 <button >Arquivos</button>
                 <button >Sincronizar</button>
                 <button id="nav-ir-preferencias">Preferência</button>
@@ -29,8 +37,16 @@
             </nav>
         </aside>
 
-        <aside class="sidebar" id="sidebar-preferencias" style="display: none;">
+        <aside class="sidebar menu-deslizante" id="sidebar-pesquisa" style="display: none;">
             <nav class="nav-menu">
+                <button id="btn-voltar-pesquisa" style="color: var(--laranja);"> ⬅ </button>
+                <li class="active">Pesquisar</li>
+            </nav>
+        </aside>
+
+        <aside class="sidebar menu-deslizante" id="sidebar-preferencias" style="display: none;">
+            <nav class="nav-menu">
+                <button id="btn-voltar-pref" style="color: var(--laranja);"> ⬅ </button>
                 <li class="active" id="aba-tipografia">Tipografia</li>
                 <li id="aba-cores">Cores E Contraste</li>
                 <li id="aba-audio">Áudio</li>
@@ -42,60 +58,22 @@
         <main class="content-area">
 
             <section id="tela-livros" class="book-grid">
-                <article class="book-card">
-                    <div class="card-title-area"><h3>A Revolução dos Bichos</h3><p>George Orwell</p></div>                    
-                    <div class="card-body-area"><div class="book-cover"><img src="IMG/livro1.jpeg" alt="Capa do livro A Revolução dos Bichos">
-                            <span class="tag-formato">KINDLE</span></div>
-                    </div>
-                </article>
+            </section>
 
-                <article class="book-card">
-                    <div class="card-title-area">
-                        <h3>O Iluminado</h3>
-                        <p>Stephen King</p>
-                    </div>
-                    <div class="card-body-area">
-                        <div class="book-cover">
-                            <img src="IMG/livro2.jpeg" alt="Capa do livro O Iluminado">  
-                            <span class="tag-formato">KINDLE</span></div>
-                    </div>
-                </article>
+            <!-- TELA DE PESQUISAR -->
 
-                <article class="book-card">
-                    <div class="card-title-area">
-                       <h3>Futuro Ancestral</h3>
-                        <p>Ailton Krenak</p>
-                    </div>                    
-                    <div class="card-body-area">
-                        <div class="book-cover">
-                            <img src="IMG/livro3.jpeg" alt="Capa do livro Futuro Ancestral">
-                            <span class="tag-formato">KINDLE</span></div>
-                    </div>
-                </article>
+            <section id="tela-pesquisar" style="display: none; padding: 40px;">
+                <div class="busca-container">
+                    <input type="text" placeholder="Buscar livros, autores ou documentos..." class="input-busca">
+                    <button class="btn-busca">busca</button>
+                </div>
 
-                <article class="book-card">
-                   <div class="card-title-area">
-                        <h3>Crepúsculo</h3>
-                        <p>Stephenie Meyer</p>
-                    </div>                    
-                    <div class="card-body-area">
-                        <div class="book-cover">
-                            <img src="IMG/livro4.jpeg" alt="Capa do livro Crepúsculo">
-                            <span class="tag-formato">KINDLE</span></div>
+                <div class="sessao-pesquisa">
+                    <h2 style="color: var(--azul-profundo); margin-bottom: 20px; font-family: 'OpenDyslexic', sans-serif;">Resultados da Busca</h2>
+                    <div id="resultados-google" class="book-grid" style="padding: 0; gap: 20px;">
+                        <p id="msg-busca" style="grid-column: 1 / -1; text-align: center; font-weight: bold;">Digite o nome de um livro acima para pesquisar no acervo.</p>
                     </div>
-                </article>
-
-                <article class="book-card">
-                    <div class="card-title-area">
-                        <h3>Edital Concurso 2026</h3>
-                        <p>Documento Oficial</p>
-                    </div>
-                    <div class="card-body-area">
-                        <div class="book-cover">
-                            <img src="IMG/edital.jpeg" alt="Capa Documento Edital">
-                            <span class="tag-formato">PDF</span></div>
-                    </div>
-                </article>
+                </div>
             </section>
 
             <!-- TELA DE PREFERÊNCIAS -->
@@ -108,8 +86,6 @@
                             <select id="seletor-fontes" class="font-dropdown">
                                 <option value="Verdana">Verdana (Padrão)</option>
                                 <option value="Arial">Arial</option>
-                                <option value="Montserrat">Montserrat</option>
-                                <option value="Andika">Andika</option>
                                 <option value="Calibri">Calibri</option>
                                 <option value="OpenDyslexic">OpenDyslexic</option>
                                 <option value="Sylexiad">Sylexiad</option>

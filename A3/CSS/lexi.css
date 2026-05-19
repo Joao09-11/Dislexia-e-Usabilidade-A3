@@ -13,7 +13,11 @@
     --preto-lexi: #0D0D0D; 
     --preview-fundo: #FFF9E6;
     --cor-destaque: #FFE066;
-    --espaco-padrao: 10px;
+    /*texto*/
+    --fonte-global: 'Verdana', sans-serif;
+    --tamanho-global: 14px;
+    --letras-global: 0.05em;
+    --palavras-global: 0.1em;
 }
 
 * { /* O '*' é o seletor universal. Ele aplica as regras a TODAS as tags do HTML. */
@@ -21,6 +25,73 @@
     padding: 0; /* Remove o espaço interno padrão. */
     box-sizing: border-box; /* Garante que a largura da caixa inclua a borda e o preenchimento. */
 }
+
+.card-login h2 { text-align: left; margin: 0; }
+
+.label-login { text-align: left; font-weight: bold; font-size: 0.8rem;}
+.input-login {
+    width: 100%; padding: 12px;
+    border: none; border-radius: 8px;
+    background-color: var(--cor-destaque); 
+}
+
+.btn-entrar {
+    width: 100%; padding: 12px;
+    border: none; border-radius: 8px;
+    background-color: var(--laranja);
+    font-weight: bold; cursor: pointer;
+}
+
+.divisor-ou { text-align: center !important; font-weight: bold; margin: 10px 0 !important;}
+
+.btn-social {
+    width: 100%; padding: 12px;
+    border: none; border-radius: 8px;
+    background-color: var(--azul-profundo);
+    color: var(--areia);
+    font-weight: bold; cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* BOTÃO DE ACESSO NO HEADER */
+.btn-acesso-header {
+    background-color: var(--laranja);
+    border: 2px solid var(--laranja);
+    color: var(--areia);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* BOTÃO DE CADASTRAR*/
+.btn-cadastro-header {
+    background-color: var(--azul-profundo);
+    border: 2px solid var(--azul-profundo);
+    color: var(--areia);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-acesso-header:hover {
+    background-color: transparent;
+    border-color: var(--laranja);
+    color: var(--preto-lexi);
+}
+
+.btn-cadastro-header:hover {
+    background-color: transparent;
+    border-color: var(--azul-profundo);
+    color: var(--preto-lexi);
+}
+
+/*BODY global*/
 
 body {
     background-color: var(--fundo-amarelo); 
@@ -30,6 +101,14 @@ body {
     /*espaço em td site*/
     letter-spacing: 0.05em;
     word-spacing: 0.1em;
+    line-height: 1.5;
+}
+
+body, button, input, select {
+    font-family: var(--fonte-global); 
+    font-size: var(--tamanho-global);
+    letter-spacing: var(--letras-global);
+    word-spacing: var(--palavras-global);
     line-height: 1.5;
 }
 
@@ -45,17 +124,13 @@ body {
     margin-left: 10%;
 }
 
-.btn-group { 
-    display: flex; 
-    gap: var(--espaco-padrao); 
-}
-
+.btn-group { display: flex; gap: 15px; }
 .btn-tema{ width: 60%;}
 
 .btn-group-temas {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--espaco-padrao);
+    gap: 15px;
     margin-bottom: 20px;
 }
 
@@ -69,12 +144,17 @@ body {
     cursor: pointer;
     transition: 0.2s;
     text-align: center;
+    padding: 0 10px;
 }
 
-.btn-laranja-fixo{ width: 85px; font-size: 0.8rem;}
-
+.btn-laranja-fixo{ width: 85px; font-size: 0.7rem;}
 .btn-laranja-fixo:hover, .btn-tema:hover { /* ':hover' é um pseudo-estado que define o que acontece quando o mouse passa por cima. */
     background-color: var(--azul-profundo);
+}
+
+.btn-ativo{
+    background-color: var(--azul-profundo) !important;
+    border: 2px solid var(--areia) !important;
 }
 
 /* TEMAS  */
@@ -140,27 +220,31 @@ body.tema-noturno {
     background-color: var(--header-dislexia); /* 'var' chama a cor guardada no :root. */
     height: 110px;
     display: flex;
-    justify-content: center;
     align-items: center;
     border-bottom: 2px solid rgba(0,0,0,0.05);
 }
 
 .header-content {
     width: 100%;
-    max-width: 1400px;
-    padding: 0 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;/*empurra o logo para a esquerda e o perfil para a direita. */
     align-items: center;
-}/* 'space-between' empurra o logo para a esquerda e o perfil para a direita. */
+    position: relative;
+    padding: 0 40px;
+}
+
+.icone-menu{ background: none; border: none; font-size: 2rem; color: var(--preto-lexi); cursor: pointer;}
+
+.logo-area{ position: absolute; left: 50%; transform: translateX(-50%);}
 
 .logo-link {
     font-family: 'OpenDyslexic', sans-serif; 
     font-size: 2.8rem; 
     color: var(--preto-lexi); 
     text-decoration: none; /* Remove o sublinhado azul padrão dos links. */
+    letter-spacing: normal;
+    word-spacing: normal;
 }
-
 .avatar-user { 
     width: 55px; 
     height: 55px; 
@@ -175,7 +259,12 @@ body.tema-noturno {
 .sidebar { 
     width: 300px; /* Largura padrão e inalterável */
     background-color: var(--azul-profundo);
+    flex-shrink: 0; /* Impede a barra de ser esmagada */
+    margin-left: -300px;/* Começa escondido na tela */
+    transition: margin-left 0.4 ease;/* Animação suave */
 }
+
+.sidebar.aberta{ margin-left: 0; }
 
 .nav-menu li, .nav-menu button { /* Aplica o mesmo estilo seja <button> ou <li> */
     width: 100%;
@@ -197,6 +286,7 @@ body.tema-noturno {
 
 .content-area { flex: 1; display: flex; flex-direction: column;}
 
+/* LIVROS E CARDS*/
 .book-grid {
     display: grid; /* sistema de grid para criar colunas e linhas. */
     grid-template-columns: repeat(auto-fit, 320px); /*cria colunas de 320px que se ajustam sozinhas ao tamanho da tela. */
@@ -205,20 +295,47 @@ body.tema-noturno {
     justify-content: center; /* Mantém os cards centralizados */
 }
 
-.book-card {
-    background-color: var(--laranja);
-    border-radius: 25px;
-    overflow: hidden;
-}
-
+.book-card {background-color: var(--laranja);border-radius: 25px;overflow: hidden;}
 .card-title-area { padding: 20px; color: var(--areia);}
 .card-body-area { padding: 15px; background-color: rgba(255,255,255,0.15); }
-
 .book-cover { border-radius: 15px; overflow: hidden; height: 350px; position: relative;}
 .book-cover img { width: 100%; height: 100%; object-fit: cover;}
-
 .tag-formato { position: absolute; bottom: 10px; right: 10px; background-color: var(--preto-lexi); color: var(--areia); padding: 5px 10px; border-radius: 5px; font-weight: bold;}
 
+/* TELA DE PESQUISAR */
+
+.busca-container {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    border: 3px solid var(--azul-profundo);
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: var(--areia);
+}
+
+.input-busca {
+    flex: 1;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    background-color: transparent;
+    outline: none;
+}
+
+.btn-busca {
+    background-color: var(--azul-profundo);
+    border: none;
+    padding: 0 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-busca:hover { background-color: var(--laranja); }
+
+/* TELA DE PREFERÊNCIAS */
 .pref-layout { display: flex; width: 100%; padding: 60px; gap: 50px;}
 .pref-controles { width: 300px; display: flex; flex-direction: column;}
 
@@ -243,21 +360,14 @@ body.tema-noturno {
 }
 
 /* RODAPÉ*/
-.app-footer {
-    text-align: center;
-    padding: 30px;
-    font-weight: bold;
-}
+.app-footer { text-align: center; padding: 30px; font-weight: bold;}
 
 /* CONTROLE DE BRILHO*/
 .brilho-controle{ width: 80%; cursor: pointer;}
-
 #pelicula-brilho {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     background-color: black;
     opacity: 0; /* Começa em 0 (brilho máximo) */
     pointer-events: none; /* Deixa você clicar nas coisas através dela */
@@ -268,7 +378,46 @@ body.tema-noturno {
 .palavra-destacada {
     background-color: var(--cor-destaque);
     color: var(--preto-lexi);
-    border-radius: 4px; /* Cantinhos arredondados no marca-texto ficam super modernos */
-    padding: 2px 4px; /* Dá um respiro pro amarelo não colar na letra */
+    border-radius: 4px;
+    padding: 2px 4px; 
     transition: background-color 0.3s;
+}
+
+/* RESPONSIVIDADE GERAL */
+@media screen and (max-width: 768px) {
+    /* 1. HEADER (Cabeçalho) */
+    .btn-acesso-header, .btn-cadastro-header {
+        display: none !important; 
+    }
+    .icone-perfil-mobile {
+        display: block !important; 
+    }
+    .logo-area {
+        position: static; 
+        transform: none;
+    }
+    .header-content {
+        padding: 0 20px; 
+    }
+
+    /* 2. TELA DE PREFERÊNCIAS */
+    .pref-layout {
+        flex-direction: column; 
+        padding: 20px;
+        gap: 30px;
+    }
+    .pref-controles {
+        width: 100%; 
+    }
+    .preview-box {
+        padding: 20px; 
+        min-height: 300px;
+    }
+
+    /* 3. TELA DE LIVROS (Biblioteca) */
+    .book-grid {
+        padding: 20px;
+        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    }
 }
