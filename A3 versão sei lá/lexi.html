@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexi</title>
+    <link rel="stylesheet" href="CSS/lexi.css">
+</head>
+<body>
+<div id="pelicula-brilho"></div>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-area"><a href="lexi.html" class="logo-link" id="btn-logo-home">Lexi</a></div>
+
+            <div class="header-right" style="display: flex; gap: 15px; align-items: center; margin-left: auto;">
+            <a href="login.html" class="btn-acesso-header" style="text-decoration: none;">Acessar</a>
+            <button class="btn-cadastro-header">Cadastrar</button>
+            
+            <a href="login.html" class="icone-perfil-mobile" style="display: none; text-decoration: none;">
+                <img src="IMG/user-header.png" alt="Acessar conta" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; display: block;">
+            </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-container">
+
+<aside class="sidebar" id="sidebar-principal">
+    <nav class="nav-menu">
+        <button id="nav-ir-pesquisar">
+            <img src="ICON/iconLupa.png" alt="Pesquisar" class="icone-menu-lateral">
+            <span class="texto-menu">Pesquisar</span>
+        </button>
+        <button id="nav-ir-biblioteca">
+            <img src="ICON/iconBiblioteca.png" alt="Biblioteca" class="icone-menu-lateral">
+            <span class="texto-menu">Biblioteca</span>
+        </button>
+        <div id="sub-biblioteca" class="submenu-sanfona">
+        <li id="sub-livros">Livros</li>
+        <li>Documentos</li>
+        <li>Sincronizados</li>
+        <li>Favoritos</li>
+        <li>Coleções</li>
+    </div>
+        <button id="nav-ir-arquivos">
+            <img src="ICON/iconArq.png" alt="Arquivos" class="icone-menu-lateral">
+            <span class="texto-menu">Arquivos</span>
+        </button>
+        <button id="nav-ir-sincronizar">
+            <img src="ICON/iconSincronizar.png" alt="Sincronizar" class="icone-menu-lateral">
+            <span class="texto-menu">Sincronizar</span>
+        </button>
+        <button id="nav-ir-preferencias">
+            <img src="ICON/iconPreferencias.png" alt="Preferências" class="icone-menu-lateral">
+            <span class="texto-menu">Preferências</span>
+        </button>
+        <div id="sub-preferencias" class="submenu-sanfona">
+            <li class="active" id="aba-tipografia">Tipografia</li>
+            <li id="aba-cores">Cores e Contraste</li>
+            <li id="aba-audio">Áudio</li>
+            <li>Ferramentas de Auxilio</li>
+            <button id="btn-resetar-pref" style="width: 80%; margin: 15px auto; padding: 10px; border-radius: 8px; background-color: transparent; border: 2px solid var(--laranja); color: var(--areia); cursor: pointer; font-weight: bold; transition: 0.2s;">Restaurar Padrões</button>
+        </div>
+        <button>
+            <img src="ICON/iconConfig.png" alt="Configurações" class="icone-menu-lateral">
+            <span class="texto-menu">Configuração</span>
+        </button>
+    </nav>
+</aside>
+
+        <main class="content-area">
+
+            <section id="tela-livros" class="book-grid"></section>
+
+             <!-- TELA DE Biblioteca -->
+            <section id="tela-minha-biblioteca" style="display: none; padding: 20px;">
+    <h2 style="color: var(--azul-profundo);">Minha Estante</h2>
+    
+    <div class="controles-pesquisa" id="controles-biblioteca" style="display: none;">
+        <input type="text" id="input-busca-biblio" placeholder="Buscar na minha estante..." aria-label="Buscar na estante">
+        
+        <div class="filtros-avancados">
+            <select id="filtro-genero-biblio" aria-label="Filtrar por gênero">
+                <option value="todos">Todos os Gêneros</option>
+                <option value="classicos">Clássicos</option>
+                <option value="documentos">Documentos</option>
+                <option value="ensino">Ensino</option>
+                <option value="fantasia">Fantasia</option>
+                <option value="ficcao">Ficção</option>
+                <option value="filosofia">Filosofia</option>
+                <option value="romance">Romance</option>
+                <option value="sociedade">Sociedade</option>
+                <option value="terror">Terror</option>
+            </select>
+
+            <select id="filtro-ano-biblio" aria-label="Filtrar por ano">
+                <option value="todos">Qualquer Ano</option>
+                <option value="1943">1943</option>
+                <option value="1949">1949</option>
+                <option value="1977">1977</option>
+                <option value="2000">2000</option>
+                <option value="2005">2005</option>
+                <option value="2020">2020</option>
+                <option value="2022">2022</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+            <button id="btn-aplicar-filtros-biblio" class="btn-laranja-fixo">Filtrar</button>
+        </div>
+    </div>
+
+    <div id="grid-minha-biblioteca" class="book-grid"></div>
+</section>
+
+            <!-- TELA DE PESQUISAR -->
+
+            <section id="tela-pesquisa" style="display: none; padding: 20px;">
+    <h2 style="color: var(--azul-profundo);">Explorar Catálogo</h2>
+    
+    <div class="controles-pesquisa">
+        <input type="text" id="input-busca-geral" placeholder="Buscar título, autor..." aria-label="Buscar livros">
+        
+        <div class="filtros-avancados">
+            <select id="filtro-genero" aria-label="Filtrar por gênero">
+                <option value="todos">Todos os Gêneros</option>
+                <option value="classicos">Classicos</option>
+                <option value="documentos">Documentos</option>
+                <option value="ensino">Ensino</option>
+                <option value="fantasia">Fantasia</option>
+                <option value="ficcao">Ficção</option>
+                <option value="filosofia">Filosofia</option>
+                <option value="romance">Romance</option>
+                <option value="sociedade">Sociedade</option>
+                <option value="terror">Terror</option>
+            </select>
+
+            <select id="filtro-ano" aria-label="Filtrar por ano">
+                <option value="todos">Qualquer Ano</option>
+                <option value="1889">1889</option>
+                <option value="1943">1943</option>
+                <option value="1945">1945</option>
+                <option value="1949">1949</option>
+                <option value="1977">1977</option>
+                <option value="1989">1989</option>
+                <option value="2000">2000</option>
+                <option value="2005">2005</option>
+                <option value="2020">2020</option>
+                <option value="2022">2022</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+            
+            <button id="btn-aplicar-filtros" class="btn-laranja-fixo">Filtrar</button>
+        </div>
+    </div>
+
+    <div id="resultados-pesquisa" class="book-grid"></div>
+</section>
+            
+<!-- TELA De arquivos -->
+
+<section id="tela-arquivos" style="display: none; padding: 40px; width: 100%;">
+    <h2 style="color: var(--azul-profundo); font-family: 'OpenDyslexic', sans-serif; font-size: 2rem; margin-bottom: 20px;">Arquivos</h2>
+    
+    <div class="preview-box" style="display: flex; flex-direction: column; gap: 25px; max-width: 600px; margin: 0 auto; align-items: center; justify-content: center; border: 2px dashed var(--azul-profundo); padding: 40px;">
+        <p style="text-align: center; margin-bottom: 10px; font-weight: bold;">Importe documentos para sua biblioteca da Lexi.</p>
+        
+        <label for="input-upload-local" style="background-color: var(--laranja); color: var(--areia); padding: 14px 30px; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 1.1rem; display: inline-block; transition: 0.2s; text-align: center; width: 100%; max-width: 400px;">
+            Selecionar Arquivo Local
+        </label>
+        <input type="file" id="input-upload-local" style="display: none;">
+        
+        <p style="font-size: 0.8rem; text-align: center; color: var(--preto-lexi); opacity: 0.8;">
+            *Formatos suportados para leitura acessível: .pdf, .epub, .txt
+        </p>
+    </div>
+</section>
+
+ <!-- TELA DE SINCRONIZAR -->
+
+            <section id="tela-sincronizar" style="display: none; padding: 40px; width: 100%;">
+                <h2 style="color: var(--azul-profundo); font-family: 'OpenDyslexic', sans-serif; font-size: 2rem; margin-bottom: 20px;">Sincronizar Contas</h2>
+                
+                <div class="preview-box" style="display: flex; flex-direction: column; gap: 25px; max-width: 600px; margin: 0 auto; align-items: center; justify-content: center; border: 2px dashed var(--azul-profundo); padding: 40px;">
+                    <p style="text-align: center; margin-bottom: 10px; font-weight: bold;">Importe livros externos diretamente para sua biblioteca da Lexi.</p>
+                    
+                    <button style="background-color: var(--azul-profundo); color: var(--areia); padding: 14px 30px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; font-size: 1.1rem; width: 100%; max-width: 400px; transition: 0.2s; text-align: center;">
+                        Conectar com Google Livros
+                    </button>
+                    
+                    <button style="background-color: transparent; color: var(--preto-lexi); padding: 12px 30px; border-radius: 10px; border: 2px solid var(--laranja); font-weight: bold; cursor: pointer; font-size: 1.1rem; width: 100%; max-width: 400px; transition: 0.2s; text-align: center;">
+                        Conectar com Amazon Kindle
+                    </button>
+
+                    <p style="font-size: 0.8rem; text-align: center; color: var(--preto-lexi); opacity: 0.8;">
+                        *A sincronização pode levar alguns minutos dependendo do tamanho do acervo externo.
+                    </p>
+                </div>
+            </section>
+
+            <!-- TELA DE PREFERÊNCIAS -->
+            <section id="tela-preferencias" class="pref-layout" style="display: none;">
+            
+                <div class="pref-controles">
+                
+                    <div id="secao-tipografia">
+                        <p class="label-secao">Fontes</p>
+                            <select id="seletor-fontes" class="font-dropdown">
+                                <option value="Verdana">Verdana (Padrão)</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Calibri">Calibri</option>
+                                <option value="OpenDyslexic">OpenDyslexic</option>
+                                <option value="Sylexiad">Sylexiad</option>
+                            </select>
+                        
+                            <p class="label-secao">Tamanho do Texto</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-texto">A -</button>
+                                <button class="btn-laranja-fixo" id="aumentar-texto">A +</button>
+                            </div>
+                            
+                            <p class="label-secao">Espaçamento entre Letras</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-letras">A - A</button>
+                                <button class="btn-laranja-fixo" id="aumentar-letras">A + A</button>
+                            </div>
+
+                            <p class="label-secao">Espaçamento das Linhas</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="diminuir-linhas">↕ -</button>
+                                <button class="btn-laranja-fixo" id="aumentar-linhas">↕ +</button>
+                            </div>
+
+                            <p class="label-secao">Aliamento</p>
+                            <div class="btn-group">
+                                <button class="btn-laranja-fixo" id="align-left">Esquerda</button>
+                                <button class="btn-laranja-fixo" id="align-justify">Justificado</button>
+                            </div>
+                        </div><!-- FIM DA CAIXA DE TIPOGRAFIA-->
+
+                    <!--  CORES E CONTRASTE -->
+                    <div id="secao-cores" style="display: none;">
+                        <p class="label-secao">Temas</p>
+                        <div class="btn-group-temas">
+                            <button class="btn-tema" id="tema-padrao">Colorido (Padrão)</button>
+                            <button class="btn-tema" id="tema-caramelo">Cachorro Caramelo</button>
+                            <button class="btn-tema" id="tema-barro">Filtro de Barro</button>
+                            <button class="btn-tema" id="tema-arara">Arara Azul</button>
+                            <button class="btn-tema" id="tema-cinza">Cinza</button>
+                            <button class="btn-tema" id="tema-noturno">Noturno</button>
+                        </div>
+
+                        <label class="label-secao">Brilho da Tela</label>
+                         <input type="range" id="slider-brilho" class="brilho-controle" min="0" max="0.7" step="0.1" value="0">
+                    </div>
+
+                    <div id="secao-audio" style="display: none;">
+    
+                    <p class="label-secao">Controles de Leitura</p>
+                    <div class="btn-group">
+                        <button class="btn-laranja-fixo" id="btn-play">Tocar</button>
+                        <button class="btn-laranja-fixo" id="btn-pause">Pausar</button>
+                        <button class="btn-laranja-fixo" id="btn-stop">Parar</button>
+                    </div>
+
+                    <p class="label-secao">Tipo de Voz</p>
+                    <select id="seletor-voz" class="font-dropdown">
+                        <option value="pt-BR-fem">Feminina (Padrão)</option>
+                        <option value="pt-BR-masc">Masculina</option>
+                    </select>
+
+                    <p class="label-secao">Velocidade da Voz</p>
+                    <div class="btn-group">
+                        <button class="btn-laranja-fixo" id="vel-lenta">0.5x</button>
+                        <button class="btn-laranja-fixo" id="vel-normal">1.0x</button>
+                        <button class="btn-laranja-fixo" id="vel-rapida">1.5x</button>
+                        <button class="btn-laranja-fixo" id="vel-rapida2x">2x</button>
+                    </div>
+
+                    <p class="label-secao">Marca Texto</p>
+                    <div class="btn-group">
+                        <button class="btn-laranja-fixo" id="destaque-on" style="width: 30%;">Ligar</button>
+                        <button class="btn-laranja-fixo" id="destaque-off" style="width: 30%;">Desligar</button>
+                    </div>
+                </div>
+                </div> <!-- FIM DOS CONTROLES -->   
+
+                    <div class="pref-preview">
+                        <div class="preview-box">
+                        <p id="texto-exemplo">
+                            "De três coisas eu estava convicta. Primeira, o Edward era um vampiro. 
+                            Segunda, havia uma parte dele, e eu não sabia quão dominante essa parte poderia ser, 
+                            que anseia pelo meu sangue. E terceira, eu estava incondicionalmente e 
+                            irrevogavelmente apaixonada por ele."
+                        </p>
+                        </div>
+                    </div> 
+                    
+            </section>
+        </main>
+    </div>
+<section id="tela-faq" style="display: none; padding: 40px;">
+    <h2 style="color: var(--azul-profundo); margin-bottom: 20px;">Dúvidas Frequentes (FAQ)</h2>
+
+    <div class="faq-container">
+        <details class="faq-item">
+            <summary>Como altero o tema de cores e contraste?</summary>
+            <div class="faq-conteudo">
+                <p>Acesse o menu lateral e clique em "Cores e Contraste". Lá você pode escolher temas pré-definidos focados em legibilidade, como o tema noturno ou alto contraste, sem alterar a fonte do texto.</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Como funcionam as coleções (estilo Wattpad)?</summary>
+            <div class="faq-conteudo">
+                <p>Na sua Biblioteca, você pode agrupar seus livros favoritos em listas personalizadas. (Em breve na próxima versão!)</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Qual a diferença entre a Pesquisa e a Biblioteca?</summary>
+            <div class="faq-conteudo">
+                <p>A Pesquisa procura em todo o catálogo global do Lexi. A Biblioteca mostra apenas os livros que você adicionou ou fez upload no seu perfil.</p>
+            </div>
+        </details>
+    </div>
+</section>
+    <footer class="app-footer">
+        <p>Lexi &copy; 2026 | Projeto A3</p>
+    </footer>
+
+    <script src="SCRIPT/dados.js"></script>
+    <script src="SCRIPT/preferencias.js"></script>
+    <script src="SCRIPT/navegacao.js"></script>
+    <script src="SCRIPT/lexi.js"></script>
+    <script src="SCRIPT/login.js"></script>
+    <script src="SCRIPT/pesquisar.js"></script>
+    <script src="SCRIPT/biblioteca.js"></script>
+</body>
+</html>
