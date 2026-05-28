@@ -49,7 +49,7 @@ README.md
 - Espaçamento de texto otimizado
 - Fonte amigável para leitura
 
-## Preview
+## Evolução do Projeto
 <p align="center">
   <img src="/preview.png" alt="Preview do projeto" width="600">
 </p>
