@@ -56,17 +56,15 @@ function renderizarVitrine() {
     });
 }
 
-// Quando o navegador terminar de carregar o HTML, ele chama a função para desenhar a vitrine
-document.addEventListener('DOMContentLoaded', () => {
-    renderizarVitrine();
-});
+// ==========================================
+// Gerenciamento de Estado e Inicialização
+// ==========================================
+window.addEventListener('load', async () => {
+    
+    // A MÁGICA ACONTECE AQUI: Chama o Fetch e espera os livros chegarem!
+    await carregarDadosJSON();
 
-
-
-
-// Gerenciamento de Estado de Login e Inicialização do App
-window.addEventListener('load', () => {
-const atualizarCabecalho = () => {
+    const atualizarCabecalho = () => {
         const headerRight = document.querySelector('.header-right');
         const nome = localStorage.getItem('usuarioNome') || 'Sandy';
 
@@ -100,11 +98,10 @@ const atualizarCabecalho = () => {
 
             if (btnPerfil && menuDropdown) {
                 btnPerfil.onclick = (e) => {
-                    e.stopPropagation(); // Evita que o clique feche imediatamente
+                    e.stopPropagation(); 
                     menuDropdown.classList.toggle('mostrar');
                 };
 
-                // A MÁGICA: Fecha o menu sozinho se o usuário clicar em qualquer outro lugar da tela
                 document.addEventListener('click', (event) => {
                     if (!menuDropdown.contains(event.target) && !btnPerfil.contains(event.target)) {
                         menuDropdown.classList.remove('mostrar');
@@ -112,7 +109,7 @@ const atualizarCabecalho = () => {
                 });
             }
 
-            // Lógica de Sair da Conta (Continua perfeita)
+            // Lógica de Sair da Conta
             const btnSair = document.getElementById('btn-sair-conta');
             if (btnSair) {
                 btnSair.onclick = () => {
@@ -130,11 +127,11 @@ const atualizarCabecalho = () => {
         atualizarCabecalho();
         localStorage.removeItem('fazerLogin');
         localStorage.setItem('sessaoAtiva', 'sim');
-        renderizarVitrine(); // Mostra a vitrine geral!
+        renderizarVitrine(); // Mostra a vitrine geral depois de logar!
     } else if (localStorage.getItem('sessaoAtiva') === 'sim') {
         atualizarCabecalho();
-        renderizarVitrine(); // Mostra a vitrine geral!
+        renderizarVitrine(); // Mostra a vitrine geral se já estiver logada!
     } else {
-        renderizarVitrine(); // Mostra a vitrine geral!
+        renderizarVitrine(); // Mostra a vitrine geral para visitantes deslogados!
     }
 });

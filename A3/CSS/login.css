@@ -1,18 +1,18 @@
-
-/****** ESTRUTURA DA TELA DE LOGIN ******/
+/****** ESTRUTURA DA TELA DE LOGIN MONOCROMÁTICA ******/
 .caixa-login-ev {
-    background-color: #FCE883; /* Fundo amarelo do card */
+    background-color: var(--areia); /* Fundo limpo e sofisticado */
+    border: 1px solid var(--header-dislexia); /* Contorno amarelo suave */
     width: 900px;
     max-width: 90%;
     min-height: 450px;
-    border-radius: 20px;
-    display: flex; /* Isso coloca o Lado Esquerdo, o Meio e o Direito lado a lado */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    display: flex; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra mais leve */
     padding: 40px;
 }
 
 .lado-form {
-    flex: 1; /* Ocupa 50% do espaço */
+    flex: 1; 
     padding-right: 40px;
     display: flex;
     flex-direction: column;
@@ -20,14 +20,47 @@
 }
 
 .lado-social {
-    flex: 1; /* Ocupa os outros 50% do espaço */
+    flex: 1; 
     padding-left: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* A LINHA COM O 'OU' NO MEIO */
+/* ESTILOS DOS INPUTS E BOTÕES DO LOGIN      */
+.input-login {
+    background-color: var(--areia) !important; /* Fundo amarelinho claro */
+    border: 1px solid var(--header-dislexia) !important;
+    color: var(--preto-lexi) !important;
+}
+
+.input-login:focus {
+    outline: 2px solid var(--cor-destaque);
+}
+
+.btn-entrar {
+    background-color: var(--laranja) !important;
+    color: var(--preto-lexi) !important;
+    transition: 0.2s;
+}
+
+.btn-entrar:hover {
+    background-color: var(--azul-profundo) !important; /* Amarelo um pouco mais escuro ao passar o mouse */
+}
+
+.btn-social {
+    background-color: var(--laranja) !important;
+    color: var(--preto-lexi) !important;
+    transition: 0.2s;
+}
+
+.btn-social:hover {
+    background-color: var(--azul-profundo) !important;
+}
+
+/* ========================================= */
+/* A LINHA COM O 'OU' NO MEIO                */
+/* ========================================= */
 .divisor-meio {
     display: flex;
     align-items: center;
@@ -39,23 +72,22 @@
 .linha-vertical {
     height: 100%;
     width: 2px;
-    background-color: var(--laranja); /* Linha laranja */
-    opacity: 0.3;
+    background-color: var(--laranja); /* Linha amarela suave */
+    opacity: 0.6;
 }
 
 .bolinha-ou {
     position: absolute;
-    background-color: #FCE883; /* Mesma cor do fundo para esconder a linha atrás da bolinha */
+    background-color: var(--areia); /* Fundo areia para camuflar a linha de trás */
     padding: 10px;
     font-weight: bold;
-    color: var(--azul-profundo);
-    border-radius: 50%;
+    color: var(--preto-lexi);
 }
 
-/* RESPONSIVIDADE */
+/* ========================================= */
+/* RESPONSIVIDADE (CELULARES)                */
+/* ========================================= */
 @media screen and (max-width: 768px) {
-
-    /*TELA DE LOGIN*/
     .caixa-login-ev {
         flex-direction: column; 
         width: 95%;

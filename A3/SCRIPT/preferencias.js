@@ -205,7 +205,19 @@ bNormal.onclick = () => { velocidadeAudio = 1.0; ativarBotaoUnico(bNormal, botoe
 bRapida.onclick = () => { velocidadeAudio = 1.5; ativarBotaoUnico(bRapida, botoesVelocidade); };
 bRapida2.onclick = () => { velocidadeAudio = 2.0; ativarBotaoUnico(bRapida2, botoesVelocidade); };
 
-document.getElementById('btn-salvar-pref').onclick = () => {
-    localStorage.setItem('user_p', JSON.stringify({ tamanho: sz, espaco: ls, altura: lh }));
-    alert("Preferências salvas com sucesso!");
-};
+// Ação do novo Botão Salvar (Com verificação de segurança)
+const btnSalvar = document.getElementById('btn-salvar-pref');
+if (btnSalvar) {
+    btnSalvar.onclick = () => {
+        localStorage.setItem('user_p', JSON.stringify({ tamanho: sz, espaco: ls, altura: lh }));
+        
+        // Mantém a cor visual escolhida salva também
+        const classesBody = Array.from(document.body.classList);
+        const temaAtivo = classesBody.find(c => c.startsWith('tema-'));
+        if (temaAtivo) {
+            localStorage.setItem('user_tema', temaAtivo);
+        }
+        
+        alert("Suas preferências de acessibilidade foram salvas no navegador!");
+    };
+}

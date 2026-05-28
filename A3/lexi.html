@@ -119,7 +119,7 @@
         <div class="filtros-avancados">
             <select id="filtro-genero" aria-label="Filtrar por gênero">
                 <option value="todos">Todos os Gêneros</option>
-                <option value="classicos">Classicos</option>
+                <option value="classicos">Clássicos</option>
                 <option value="documentos">Documentos</option>
                 <option value="ensino">Ensino</option>
                 <option value="fantasia">Fantasia</option>
@@ -290,41 +290,17 @@
                                 irrevogavelmente apaixonada por ele."
                             </p>
                         </div>
-                        
-                        <button id="btn-resetar-pref">Restaurar (Padrão)</button>
+                        <div style="display: flex; gap: 15px; justify-content: center; width: 100%;">
+                            <button class="btn-salvar-pref" >Salvar</button>
+                            <button class="btn-resetar-pref">Restaurar</button>
+                        </div>
                     </div>
                     
             </section>
         </main>
     </div>
-<section id="tela-faq" style="display: none; padding: 40px;">
-    <h2 style="color: var(--azul-profundo); margin-bottom: 20px;">Dúvidas Frequentes (FAQ)</h2>
-
-    <div class="faq-container">
-        <details class="faq-item">
-            <summary>Como altero o tema de cores e contraste?</summary>
-            <div class="faq-conteudo">
-                <p>Acesse o menu lateral e clique em "Cores e Contraste". Lá você pode escolher temas pré-definidos focados em legibilidade, como o tema noturno ou alto contraste, sem alterar a fonte do texto.</p>
-            </div>
-        </details>
-
-        <details class="faq-item">
-            <summary>Como funcionam as coleções (estilo Wattpad)?</summary>
-            <div class="faq-conteudo">
-                <p>Na sua Biblioteca, você pode agrupar seus livros favoritos em listas personalizadas. (Em breve na próxima versão!)</p>
-            </div>
-        </details>
-
-        <details class="faq-item">
-            <summary>Qual a diferença entre a Pesquisa e a Biblioteca?</summary>
-            <div class="faq-conteudo">
-                <p>A Pesquisa procura em todo o catálogo global do Lexi. A Biblioteca mostra apenas os livros que você adicionou ou fez upload no seu perfil.</p>
-            </div>
-        </details>
-    </div>
-</section>
     
-<footer class="app-footer" style="padding: 40px 20px; background-color: var(--areia); border-top: 2px solid rgba(0,0,0,0.05); margin-top: 50px;">
+<footer class="app-footer">
     
     <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap;">
         <a href="#" id="link-footer-sobre" style="color: var(--azul-profundo); font-weight: bold; text-decoration: none; font-size: 1.1rem;">Sobre Nós</a>
@@ -336,9 +312,9 @@
 </footer>
 
     <script src="SCRIPT/dados.js"></script>
+    <script src="SCRIPT/lexi.js"></script>
     <script src="SCRIPT/preferencias.js"></script>
     <script src="SCRIPT/navegacao.js"></script>
-    <script src="SCRIPT/lexi.js"></script>
     <script src="SCRIPT/login.js"></script>
     <script src="SCRIPT/pesquisar.js"></script>
     <script src="SCRIPT/biblioteca.js"></script>

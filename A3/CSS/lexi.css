@@ -99,11 +99,10 @@
 body {
     background-color: var(--fundo-amarelo); 
     overflow-x: hidden;
-    /* MÁGICA DO ALINHAMENTO VERTICAL */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Força o site a ter, no mínimo, a altura total da tela */
-}
+    min-height: 100vh;
+    }
 
 /* Aplica a tipografia base para tudo, evitando conflitos */
 body, button, input, select, textarea {
@@ -115,10 +114,7 @@ body, button, input, select, textarea {
     color: var(--preto-lexi);
 }
 
-/* ========================================= */
-/* GRIDS PADRONIZADOS DE PREFERÊNCIAS        */
-/* ========================================= */
-/* Padrão para 2 botões (Tipografia e Marca Texto) */
+/* GRIDS PADRONIZADOS DE PREFERÊNCIAS       */
 .btn-group { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -147,8 +143,6 @@ body, button, input, select, textarea {
     margin-bottom: 20px;
 }
 
-/* ATENÇÃO: APAGUE A REGRA DO #btn-play que estava aqui! */
-
 .btn-laranja-fixo, .btn-tema { 
     background-color: var(--laranja);
     border: none;
@@ -171,31 +165,26 @@ body, button, input, select, textarea {
     border: 2px solid var(--areia) !important;
 }
 
-/* ========================================= */
-/* BOTÃO RESTAURAR (PREFERÊNCIAS)            */
-/* ========================================= */
-#btn-resetar-pref {
-    background-color: transparent;
-    border: 1px solid var(--laranja); /* Borda bem fina e discreta */
-    color: var(--azul-profundo);
-    padding: 8px 22px; /* Reduzido para ficar menor e elegante */
-    border-radius: 8px;
-    cursor: pointer;
+/* BOTÃO RESTAURAR e salvar*/
+.btn-resetar-pref, .btn-salvar-pref {
+    background-color: var(--azul-profundo);
+    border: none;
+    color: var(--areia);
+    border-radius: 8px; 
     font-weight: bold;
-    font-size: 0.9rem; /* Fonte sutil */
-    align-self: center; /* Evita que ele estique e ultrapasse o box de texto */
-    transition: 0.2s ease;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    padding: 10px 15px; 
+    font-size: 0.95rem; 
 }
 
-#btn-resetar-pref:hover {
-    background-color: rgba(230, 146, 91, 0.08); /* Efeito sutil ao passar o mouse */
-    border-color: var(--azul-profundo);
-    color: var(--azul-profundo);
+.btn-resetar-pref:hover, .btn-salvar-pref:hover {
+    background-color: var(--laranja);
 }
 
-/* ========================================= */
+
 /* EXCEÇÃO: Botões de Filtrar da Pesquisa    */
-/* ========================================= */
 /* Eles precisam continuar altões para alinhar com a caixa de texto */
 #btn-aplicar-filtros, #btn-aplicar-filtros-biblio {
     height: 52px;
@@ -304,13 +293,12 @@ body.tema-noturno {
 
 .app-container { 
     display: flex; 
-    flex: 1; /* Força esta área a esticar e engolir todo o espaço vazio restante */
-}
+    flex: 1;
+    }
 
 /* COMPORTAMENTO DA BARRA PRINCIPAL */
 #sidebar-principal, .menu-deslizante {
-    background-color: var(--azul-profundo); 
-    min-height: calc(100vh - 110px); /* Garante que a barra desça até o rodapé */
+    background-color: var(--azul-profundo);  
 }
 
 #sidebar-principal { 
@@ -378,9 +366,8 @@ body.tema-noturno {
 
 .content-area { flex: 1; display: flex; flex-direction: column;}
 
-/* ========================================= */
-/* ESTILOS DO SUBMENU SANFONA                */
-/* ========================================= */
+
+/* ESTILOS DO SUBMENU */
 .submenu-sanfona {
     background-color: rgba(0,0,0,0.15); /* Escurece um pouco o fundo para diferenciar */
     padding-left: 15px; 
@@ -422,18 +409,48 @@ body.tema-noturno {
 
 /* LIVROS E CARDS*/
 .book-grid {
-    display: grid; /* sistema de grid para criar colunas e linhas. */
-    grid-template-columns: repeat(auto-fit, 320px); /*cria colunas de 320px que se ajustam sozinhas ao tamanho da tela. */
-    gap: 50px; /*espaçamentos dos cards*/
-    padding: 60px;
-    justify-content: center; /* Mantém os cards centralizados */
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); /* Transforma o layout em 4 fileiras verticais perfeitas */
+    gap: 40px; /* Reduzido um pouco para os 4 cards respirarem sem apertar as bordas */
+    padding: 40px; 
+    justify-content: center;
 }
 
-.book-card {background-color: var(--laranja);border-radius: 25px;overflow: hidden;}
-.card-title-area { padding: 20px; color: var(--areia);}
+.book-card {background-color: var(--laranja);border-radius: 20px;overflow: hidden; transition: transform 0.2s ease;}
 .card-body-area { padding: 15px; background-color: rgba(255,255,255,0.15); }
-.book-cover { border-radius: 15px; overflow: hidden; height: 350px; position: relative;}
-.book-cover img { width: 100%; height: 100%; object-fit: cover;}
+/* A MÁGICA DA PROPORÇÃO: O livro nunca mais fica esticado */
+.book-cover { 
+    border-radius: 12px; 
+    overflow: hidden; 
+    aspect-ratio: 2 / 3; /* Proporção oficial de capas de livros! */
+    width: 100%; /* A altura se ajusta sozinha com base na largura */
+    position: relative;
+}
+
+.book-cover img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+/* Ajuste dos textos para não brigarem com o tamanho do card */
+.card-title-area { 
+    padding: 15px; 
+    color: var(--areia);
+}
+
+.card-title-area h3 {
+    font-size: 1.1rem; /* Letra um pouco menor para caber melhor */
+    margin-bottom: 5px; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.card-title-area p {
+    font-size: 0.85rem; /* Ajuste sutil no autor/ano */
+    opacity: 0.9;
+}
 .tag-formato { position: absolute; bottom: 10px; right: 10px; background-color: var(--preto-lexi); color: var(--areia); padding: 5px 10px; border-radius: 5px; font-weight: bold;}
 
 /* TELA DE PESQUISAR */
@@ -498,9 +515,9 @@ body.tema-noturno {
     text-align: center; 
     padding: 25px 20px; 
     font-weight: bold;
-    background-color: var(--areia); /* Seu branco lexi preenche a base */
-    border-top: 1px solid rgba(0,0,0,0.08);
+    background-color: var(--areia); 
     width: 100%;
+    margin-top: auto;
 }
 
 /* CONTROLE DE BRILHO*/
@@ -524,9 +541,7 @@ body.tema-noturno {
     transition: background-color 0.3s;
 }
 
-/* ========================================= */
 /* ESTILOS DAS BARRAS DE PESQUISA E FILTROS  */
-/* ========================================= */
 .controles-pesquisa {
     display: flex;
     flex-direction: column;
@@ -621,58 +636,22 @@ body.tema-noturno {
     /* 3. TELA DE LIVROS (Biblioteca) */
     .book-grid {
         padding: 20px;
-        gap: 30px;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 16px;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
+
+/* EXTRA: Para celulares muito pequenos (telas abaixo de 480px) */
+@media screen and (max-width: 480px) {
+    .book-grid {
+        grid-template-columns: repeat(2, 1fr); /* Vira 1 coluna bem focada e limpa */
+        gap: 18px;
+        padding: 10px;
+    }
 }
 
-.faq-item {
-    background-color: var(--areia);
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 8px;
-    margin-bottom: 15px;
-    overflow: hidden;
-}
 
-/* O título da pergunta (que é clicável) */
-.faq-item summary {
-    font-weight: bold;
-    padding: 15px 20px;
-    cursor: pointer;
-    color: var(--azul-profundo);
-    list-style: none; /* Tira a setinha padrão em alguns navegadores */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* O sinal de + agora está em Laranja de alto contraste! */
-.faq-item summary::after {
-    content: "+";
-    font-size: 1.2rem;
-    color: var(--laranja); /* Mudado de cor-destaque para laranja por acessibilidade visual */
-    font-weight: bold;
-}
-
-.faq-item[open] summary::after {
-    content: "-";
-}
-
-/* O texto da resposta */
-.faq-conteudo {
-    padding: 0 20px 20px 20px;
-    border-top: 1px solid #ddd;
-    margin-top: 10px;
-    color: var(--preto);
-}
-
-/* ========================================= */
 /* MENU DROPDOWN DE PERFIL (ESTILO ULIFE)    */
-/* ========================================= */
 .dropdown-perfil {
     position: absolute;
     top: 70px; /* Posiciona logo abaixo da foto do header */
