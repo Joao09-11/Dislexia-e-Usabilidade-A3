@@ -1,23 +1,22 @@
-// ==========================================
-// FUNÇÃO UNIVERSAL DE BLOQUEIO (ESTILO SPOTIFY)
-// ==========================================
 const verificarBloqueio = (container, nomeDaArea) => {
     const estaLogado = localStorage.getItem('sessaoAtiva') === 'sim';
     
     if (!estaLogado && container) {
+
+        const titulo = container.querySelector('h2');
+        const h2Salvo = titulo ? titulo.outerHTML : '';
+
         container.innerHTML = `
+            ${h2Salvo}
             <div class="aviso-login" style="grid-column: 1 / -1; text-align: center; padding: 60px; max-width: 500px; margin: 0 auto; background: var(--preview-fundo); border-radius: 20px; border: 2px dashed var(--azul-profundo);">
                 <h3 style="font-family: 'OpenDyslexic', sans-serif; font-size: 1.6rem; color: var(--azul-profundo); margin-bottom: 15px;">Acesso Restrito</h3>
-                <p style="margin-bottom: 25px; font-size: 1rem; opacity: 0.8;">Faça login ou crie uma conta para acessar a área de <b>${nomeDaArea}</b> e gerenciar seus dados externos.</p>
-                <a href="login.html" class="btn-tema" style="display: inline-block; padding: 12px 30px; text-decoration: none; font-weight: bold; line-height: 45px; height: 45px;">Entrar agora</a>
+<p style="margin-bottom: 30px; font-size: 1.2rem; line-height: 1.6; font-family: var(--fonte-global); letter-spacing: var(--letras-global); word-spacing: var(--palavras-global); color: var(--preto-lexi);">Faça login ou crie uma conta para acessar <b>${nomeDaArea}</b>.</p>
+                <a href="login.html" class="btn-tema" style="display: inline-block; padding: 1px 30px; text-decoration: none; font-weight: bold; line-height: 45px; height: 45px;">Entrar agora</a>
             </div>
         `;
     }
 };
 
-// ==========================================
-// 1. DECLARAÇÃO DOS ELEMENTOS GLOBAIS
-// ==========================================
 const sPrincipal = document.getElementById('sidebar-principal'); 
 const subPreferencias = document.getElementById('sub-preferencias'); 
 const subBiblioteca = document.getElementById('sub-biblioteca'); 
@@ -30,9 +29,6 @@ const tBiblioteca = document.getElementById('tela-minha-biblioteca');
 const tArquivos = document.getElementById('tela-arquivos'); 
 const tFaq = document.getElementById('tela-faq'); 
 
-// ==========================================
-// 2. FUNÇÕES DE LIMPEZA
-// ==========================================
 const fecharSubMenus = () => {
     if (subPreferencias) subPreferencias.classList.remove('expandido');
     if (subBiblioteca) subBiblioteca.classList.remove('expandido');
@@ -61,9 +57,7 @@ document.getElementById('btn-logo-home')?.addEventListener('click', (e) => {
     gerenciarVoltarHome();
 });
 
-// ==========================================
-// 3. INTERAÇÕES DE NAVEGAÇÃO
-// ==========================================
+// INTERAÇÕES DE NAVEGAÇÃO
 
 document.getElementById('nav-ir-pesquisar').onclick = () => {
     if (tPesquisa && tPesquisa.style.display === 'block') {
@@ -111,7 +105,7 @@ document.getElementById('nav-ir-sincronizar').onclick = () => {
     sPrincipal.classList.add('aberta');
     if (tSincronizar){
         tSincronizar.style.display = 'block';
-        verificarBloqueio(tSincronizar, "Sincronização de Contas"); // CORRIGIDO AQUI!
+        verificarBloqueio(tSincronizar, "Sincronização de Contas");
     }
 };
 
@@ -124,7 +118,7 @@ document.getElementById('nav-ir-preferencias').onclick = () => {
     resetarLayoutGeral(); fecharSubMenus(); 
     sPrincipal.classList.add('aberta'); 
     if (subPreferencias) subPreferencias.classList.add('expandido'); 
-    if (tPref) tPref.style.display = 'flex';
+    if (tPref) tPref.style.display = 'block';
 };
 
 const linkFaq = document.getElementById('link-footer-faq');

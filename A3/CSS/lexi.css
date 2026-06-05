@@ -1,9 +1,13 @@
 @font-face {
     font-family: 'OpenDyslexic';
-    src: url('../FONTES/OpenDyslexic-Regular.otf') format('woff');
+    src: url('../FONTES/OpenDyslexic-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Sylexiad';
+    src: url('../FONTES/SylexiadSerifThin.otf') format('truetype');
 }
 
-:root { /*:root é um seletor especial que guarda as variáveis do projeto. */
+:root { 
     /* Cores */
     --fundo-amarelo: #FDF5C9; 
     --header-dislexia: #F2E394;
@@ -13,89 +17,18 @@
     --preto-lexi: #0D0D0D; 
     --preview-fundo: #FFF9E6;
     --cor-destaque: #FFE066;
-    /*texto*/
     --fonte-global: 'Verdana', sans-serif;
     --tamanho-global: 14px;
     --letras-global: 0.05em;
     --palavras-global: 0.1em;
 }
 
-* { /* O '*' é o seletor universal. Ele aplica as regras a TODAS as tags do HTML. */
-    margin: 0; /* Remove o espaço externo padrão que o navegador coloca. */
-    padding: 0; /* Remove o espaço interno padrão. */
-    box-sizing: border-box; /* Garante que a largura da caixa inclua a borda e o preenchimento. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.card-login h2 { text-align: left; margin: 0; }
-
-.label-login { text-align: left; font-weight: bold; font-size: 0.8rem;}
-.input-login {
-    width: 100%; padding: 12px;
-    border: none; border-radius: 8px;
-    background-color: var(--cor-destaque); 
-}
-
-.btn-entrar {
-    width: 100%; padding: 12px;
-    border: none; border-radius: 8px;
-    background-color: var(--laranja);
-    font-weight: bold; cursor: pointer;
-}
-
-.divisor-ou { text-align: center !important; font-weight: bold; margin: 10px 0 !important;}
-
-.btn-social {
-    width: 100%; padding: 12px;
-    border: none; border-radius: 8px;
-    background-color: var(--azul-profundo);
-    color: var(--areia);
-    font-weight: bold; cursor: pointer;
-    margin-bottom: 10px;
-}
-
-/* BOTÃO DE ACESSO NO HEADER */
-.btn-acesso-header {
-    background-color: var(--laranja);
-    border: 2px solid var(--laranja);
-    color: var(--areia);
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-/* BOTÃO DE CADASTRAR*/
-.btn-cadastro-header {
-    background-color: var(--azul-profundo);
-    border: 2px solid var(--azul-profundo);
-    color: var(--areia);
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-acesso-header:hover {
-    background-color: transparent;
-    border-color: var(--laranja);
-    color: var(--preto-lexi);
-}
-
-.btn-cadastro-header:hover {
-    background-color: transparent;
-    border-color: var(--azul-profundo);
-    color: var(--preto-lexi);
-}
-
-/*BODY global*/
-
-/* ========================================= */
-/* CONFIGURAÇÕES GLOBAIS DE TEXTO E COR      */
-/* ========================================= */
 body {
     background-color: var(--fundo-amarelo); 
     overflow-x: hidden;
@@ -104,7 +37,6 @@ body {
     min-height: 100vh;
     }
 
-/* Aplica a tipografia base para tudo, evitando conflitos */
 body, button, input, select, textarea {
     font-family: var(--fonte-global); 
     font-size: var(--tamanho-global);
@@ -114,33 +46,12 @@ body, button, input, select, textarea {
     color: var(--preto-lexi);
 }
 
-/* GRIDS PADRONIZADOS DE PREFERÊNCIAS       */
-.btn-group { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 12px; 
-}
-
-/* Padrão para 3 botões (Play, Pause, Stop) */
-.btn-group-3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    gap: 12px;
-}
-
-/* Padrão para 4 botões (Velocidades) */
-.btn-group-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 12px;
-}
-
-/* Temas de Cores (Uma fileira só, ocupando 100%) */
-.btn-group-temas {
-    display: grid;
-    grid-template-columns: 1fr; /* Aqui está a mágica: 1 coluna só! */
-    gap: 12px;
+.titulo-tela {
+    color: var(--azul-profundo);
+    font-family: 'OpenDyslexic', sans-serif;
+    font-size: 1.5rem;
     margin-bottom: 20px;
+    grid-column: 1 / -1;
 }
 
 .btn-laranja-fixo, .btn-tema { 
@@ -160,563 +71,38 @@ body, button, input, select, textarea {
     background-color: var(--azul-profundo);
 }
 
-.btn-ativo {
-    background-color: var(--azul-profundo) !important;
-    border: 2px solid var(--areia) !important;
-}
-
-/* BOTÃO RESTAURAR e salvar*/
-.btn-resetar-pref, .btn-salvar-pref {
-    background-color: var(--azul-profundo);
-    border: none;
-    color: var(--areia);
-    border-radius: 8px; 
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.2s;
-    text-align: center;
-    padding: 10px 15px; 
-    font-size: 0.95rem; 
-}
-
-.btn-resetar-pref:hover, .btn-salvar-pref:hover {
-    background-color: var(--laranja);
-}
-
-
-/* EXCEÇÃO: Botões de Filtrar da Pesquisa    */
-/* Eles precisam continuar altões para alinhar com a caixa de texto */
-#btn-aplicar-filtros, #btn-aplicar-filtros-biblio {
-    height: 52px;
-    padding: 0 30px;
-    border-radius: 12px;
-    font-size: 1.05rem;
-}
-
-/* TEMAS  */
-
-body.tema-caramelo {
-    --fundo-amarelo: #FDF8E7;    
-    --preview-fundo: #FFF4B3;    
-    --header-dislexia: #F2DF80;  
-    --areia: #FFFCF2;            
-    --laranja: #DDA13E;          
-    --azul-profundo: #B07D2B;    
-    --preto-lexi: #261C00; 
-    --cor-destaque: #F4A261;      
-}
-
-body.tema-barro {
-    --fundo-amarelo: #FDF1E6;    
-    --preview-fundo: #FFDAB9;    
-    --header-dislexia: #F0B28C;  
-    --areia: #FFF6ED;            
-    --laranja: #DF8050;           
-    --azul-profundo: #BF5D30;     
-    --preto-lexi: #331408; 
-    --cor-destaque: #E9C46A;       
-}
-
-body.tema-arara {
-    --fundo-amarelo: #EAF2F8;     
-    --preview-fundo: #D0E1F0;     
-    --header-dislexia: #A9CCE3;   
-    --areia: #F4F9F9;             
-    --laranja: #5499C7;           
-    --azul-profundo: #2980B9;     
-    --preto-lexi: #0A192F; 
-    --cor-destaque: #FFF4B3;       
-}
-
-body.tema-cinza {
-    --fundo-amarelo: #F4F4F4;    
-    --preview-fundo: #E8E8E8;    
-    --header-dislexia: #DDDDDD;   
-    --areia: #FAFAFA;             
-    --laranja: #888888;           
-    --azul-profundo: #555555;     
-    --preto-lexi: #222222; 
-    --cor-destaque: #FFF4B3;      
-}
-
-body.tema-noturno {
-    --fundo-amarelo: #121212;     
-    --preview-fundo: #1E1E1E;     
-    --header-dislexia: #181818;   
-    --areia: #E0E0E0;             
-    --laranja: #2A2A2A;           
-    --azul-profundo: #333333;     
-    --preto-lexi: #F0F0F0; 
-    --cor-destaque: #8C731F;       
-}
-
-/* ESTRUTURA GERAL (Header, Sidebar, Layout)*/
-
-.main-header { /* O '.' indica uma CLASSE. Vários elementos podem usar essa mesma regra. */
-    background-color: var(--header-dislexia); /* 'var' chama a cor guardada no :root. */
-    height: 110px;
-    display: flex;
-    align-items: center;
-    border-bottom: 2px solid rgba(0,0,0,0.05);
-}
-
-.header-content {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;/*empurra o logo para a esquerda e o perfil para a direita. */
-    align-items: center;
-    position: relative;
-    padding: 0 40px;
-}
-
-.icone-menu{ background: none; border: none; font-size: 2rem; color: var(--preto-lexi); cursor: pointer;}
-
-.logo-area{ position: static; transform: none; padding-left: 15px;}
-
-.logo-link {
-    font-family: 'OpenDyslexic', sans-serif; 
-    font-size: 2.8rem; 
-    color: var(--preto-lexi); 
-    text-decoration: none; /* Remove o sublinhado azul padrão dos links. */
-    letter-spacing: normal;
-    word-spacing: normal;
-    transition: opacity 0.2s;
-}
-.logo-link:hover {
-    opacity: 0.8; /* Feedback visual sutil indicando que o logo é clicável */
-}
-.avatar-user { 
-    width: 55px; 
-    height: 55px; 
-    border-radius: 50%;
-}
-
 .app-container { 
     display: flex; 
     flex: 1;
     }
 
-/* COMPORTAMENTO DA BARRA PRINCIPAL */
-#sidebar-principal, .menu-deslizante {
-    background-color: var(--azul-profundo);  
-}
-
-#sidebar-principal { 
-    width: 85px; 
-    transition: width 0.3s ease; 
-    overflow: hidden; 
-}
-
-#sidebar-principal.aberta { 
-    width: 280px; /* Tamanho expandido: ícone + texto */
-}
-
-/* COMPORTAMENTO DOS SUBMENUS */
-.menu-deslizante {
-    width: 280px; 
-    border-left: 1px solid rgba(255,255,255,0.1); 
-}
-
-/* ESTRUTURA DOS BOTÕES DO MENU */
-.nav-menu li, .nav-menu button {
-    width: 100%;
-    padding: 20px 28px; /* Espaçamento ajustado para o ícone alinhar perfeitamente no centro */
-    background: none;
-    color: var(--areia);
-    font-family: 'Verdana', sans-serif;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    border-left: 10px solid transparent;
-    
-    /* Flexbox para manter ícone e texto sempre alinhados na horizontal */
-    display: flex;
-    align-items: center;
-    white-space: nowrap; /* Proíbe o texto de quebrar de linha */
-}
-
-/* ÍCONES DO MENU */
-.icone-menu-lateral {
-    width: 28px;
-    height: 28px;
-    margin-right: 20px;
-    flex-shrink: 0; /* Proíbe o ícone de ser esmagado pelo texto */
-    /* filter: invert(1); <- Descomente essa linha se os seus PNGs forem pretos e você precisar deixá-los brancos */
-    filter: brightness(0) invert(1);
-    opacity: 0.95;
-}
-
-/* TEXTO DO MENU (A Mágica de Aparecer/Sumir) */
-.texto-menu {
-    opacity: 0; /* Começa invisível para não manchar a tela */
-    transition: opacity 0.2s ease;
-}
-
-#sidebar-principal.aberta .texto-menu {
-    opacity: 1; /* Acende o texto quando a barra expande */
-}
-
-.nav-menu li.active { border-left: 10px solid var(--laranja); background-color: rgba(255,255,255,0.15); }
-
-.nav-menu button:hover, .nav-menu li:hover { background-color: rgba(255,255,255,0.1); }
-
-.content-area { flex: 1; display: flex; flex-direction: column;}
-
-
-/* ESTILOS DO SUBMENU */
-.submenu-sanfona {
-    background-color: rgba(0,0,0,0.15); /* Escurece um pouco o fundo para diferenciar */
-    padding-left: 15px; 
+.content-area { 
+    flex: 1;
     display: flex;
     flex-direction: column;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    margin-top: 110px;
+    margin-left: 85px;
+    min-height: calc(100vh - 110px);
 }
 
-.submenu-sanfona li {
-    width: 100%;
-    padding: 15px 30px;
-    font-size: 0.95rem; /* Letra um pouco menor que o menu principal */
-    color: var(--areia);
-    cursor: pointer;
-    list-style: none;
-    border-left: 4px solid transparent; /* Substitui o listrão laranja grosso */
-    transition: 0.3s;
-}
-
-.submenu-sanfona li:hover {
-    background-color: rgba(255,255,255,0.08);
-}
-
-/* O novo "ativo" mais delicado */
-.submenu-sanfona li.active {
-    border-left: 4px solid transparent; 
-    background-color: rgba(255,255,255,0.15);
-
-}
-
-/* CLASSE QUE O JAVASCRIPT VAI INJETAR PARA ABRIR SUAVEMENTE */
-.submenu-sanfona.expandido {
-    max-height: 350px;
-    opacity: 1;
-}
-
-/* LIVROS E CARDS*/
-.book-grid {
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); /* Transforma o layout em 4 fileiras verticais perfeitas */
-    gap: 40px; /* Reduzido um pouco para os 4 cards respirarem sem apertar as bordas */
-    padding: 40px; 
-    justify-content: center;
-}
-
-.book-card {background-color: var(--laranja);border-radius: 20px;overflow: hidden; transition: transform 0.2s ease;}
-.card-body-area { padding: 15px; background-color: rgba(255,255,255,0.15); }
-/* A MÁGICA DA PROPORÇÃO: O livro nunca mais fica esticado */
-.book-cover { 
-    border-radius: 12px; 
-    overflow: hidden; 
-    aspect-ratio: 2 / 3; /* Proporção oficial de capas de livros! */
-    width: 100%; /* A altura se ajusta sozinha com base na largura */
-    position: relative;
-}
-
-.book-cover img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-}
-
-/* Ajuste dos textos para não brigarem com o tamanho do card */
-.card-title-area { 
-    padding: 15px; 
-    color: var(--areia);
-}
-
-.card-title-area h3 {
-    font-size: 1.1rem; /* Letra um pouco menor para caber melhor */
-    margin-bottom: 5px; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis;
-}
-
-.card-title-area p {
-    font-size: 0.85rem; /* Ajuste sutil no autor/ano */
-    opacity: 0.9;
-}
-.tag-formato { position: absolute; bottom: 10px; right: 10px; background-color: var(--preto-lexi); color: var(--areia); padding: 5px 10px; border-radius: 5px; font-weight: bold;}
-
-/* TELA DE PESQUISAR */
-
-.busca-container {
-    display: flex;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-    border: 3px solid var(--azul-profundo);
-    border-radius: 30px;
-    overflow: hidden;
-    background-color: var(--areia);
-}
-
-.input-busca {
-    flex: 1;
-    border: none;
-    padding: 15px 25px;
-    font-size: 1.2rem;
-    background-color: transparent;
-    outline: none;
-}
-
-.btn-busca {
-    background-color: var(--azul-profundo);
-    border: none;
-    padding: 0 30px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-busca:hover { background-color: var(--laranja); }
-
-/* TELA DE PREFERÊNCIAS */
-.pref-layout { display: flex; width: 100%; padding: 60px; gap: 50px;}
-.pref-controles { width: 300px; display: flex; flex-direction: column;}
-
-.label-secao {
-    color: var(--azul-profundo); 
-    font-weight: 900; 
-    font-size: 0.8rem; 
-    margin: 25px 0 10px;
-    text-transform: uppercase;
-}
-
-.font-dropdown{ width: 100%; padding: 15px; border-radius: 12px; border: 2px solid var(--azul-profundo); background: var(--areia); color: var(--azul-profundo); font-weight: bold;}
-
-.pref-preview { flex: 1; display: flex;}
-.preview-box {
-    background: var(--preview-fundo);
-    width: 100%;
-    padding: 50px;
-    border-radius: 30px; /*arredonda os cantos da caixa de texto*/
-    min-height: 450px; /* garante que a caixa nunca seja menor que 450px, mesmo com pouco texto. */
-    border: 2px solid rgba(0,0,0,0.05);
-}
-
-/* RODAPÉ ALINHADO */
 .app-footer { 
     text-align: center; 
     padding: 25px 20px; 
     font-weight: bold;
     background-color: var(--areia); 
-    width: 100%;
     margin-top: auto;
+    width: calc(100% - 85px); 
+    margin-left: 85px; 
 }
 
-/* CONTROLE DE BRILHO*/
-.brilho-controle{ width: 80%; cursor: pointer;}
-#pelicula-brilho {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background-color: black;
-    opacity: 0; /* Começa em 0 (brilho máximo) */
-    pointer-events: none; /* Deixa você clicar nas coisas através dela */
-    z-index: 9999;
-}
-
-/* MARCA TEXTO*/
-.palavra-destacada {
-    background-color: var(--cor-destaque);
-    color: var(--preto-lexi);
-    border-radius: 4px;
-    padding: 2px 4px; 
-    transition: background-color 0.3s;
-}
-
-/* ESTILOS DAS BARRAS DE PESQUISA E FILTROS  */
-.controles-pesquisa {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin: 35px auto 50px auto;
-    max-width: 800px; /* Não deixa a barra esticar infinitamente em telas gigantes */
-    background-color:none;
-    border: none;
-    padding: 0;
-    box-shadow: none;
-}
-
-/* O campo de digitar o nome do livro */
-.controles-pesquisa input[type="text"] {
-    width: 100%;
-    padding: 18px 25px;
-    border-radius: 12px;
-    border: 2px solid var(--azul-profundo);
-    font-size: 1.1rem;
-    background-color: var(--areia);
-    color: var(--preto-lexi);
-    outline: none;
-    transition: 0.3s;
-}
-
-/* Quando a pessoa clica para digitar, a borda fica laranja */
-.controles-pesquisa input[type="text"]:focus {
-    border-color: var(--laranja);
-    background-color:var(--areia);
-    box-shadow: 0 0 12px rgba(230, 146, 91, 0.2);
-}
-
-/* A linha de baixo onde ficam os dropdowns e o botão */
-.filtros-avancados {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap; /* Se a tela for pequena, os botões caem para a linha de baixo sem quebrar */
-}
-
-/* Os botõezinhos de Gênero e Ano */
-.filtros-avancados select {
-    flex: 1;
-    min-width: 160px;
-    padding: 14px 20px;
-    border-radius: 10px;
-    border: 2px solid var(--azul-profundo);
-    font-weight: bold;
-    color: var(--azul-profundo);
-    background-color: var(--areia);
-    cursor: pointer;
-    font-size: 0.95rem;
-    outline: none;
-    transition: 0.3s;
-}
-
-.filtros-avancados select:focus {
-    border-color: var(--laranja);
-}
-
-/* RESPONSIVIDADE GERAL */
 @media screen and (max-width: 768px) {
-    /* 1. HEADER (Cabeçalho) */
-    .btn-acesso-header, .btn-cadastro-header {
-        display: none !important; 
+    .content-area { margin-top: 110px !important; margin-left: 65px !important; padding-bottom: 30px !important; }
+    #sidebar-principal.aberta + .content-area { margin-left: 65px !important; }
+    
+    .app-footer { 
+        margin-bottom: 0 !important; 
+        padding: 30px 20px !important; 
+        width: calc(100% - 65px) !important;
+        margin-left: 65px !important; 
     }
-    .icone-perfil-mobile {
-        display: block !important; 
-    }
-    .logo-area {
-        position: static; 
-        transform: none;
-    }
-    .header-content {
-        padding: 0 20px; 
-    }
-
-    /* 2. TELA DE PREFERÊNCIAS */
-    .pref-layout {
-        flex-direction: column; 
-        padding: 20px;
-        gap: 30px;
-    }
-    .pref-controles {
-        width: 100%; 
-    }
-    .preview-box {
-        padding: 20px; 
-        min-height: 300px;
-    }
-
-    /* 3. TELA DE LIVROS (Biblioteca) */
-    .book-grid {
-        padding: 20px;
-        gap: 16px;
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* EXTRA: Para celulares muito pequenos (telas abaixo de 480px) */
-@media screen and (max-width: 480px) {
-    .book-grid {
-        grid-template-columns: repeat(2, 1fr); /* Vira 1 coluna bem focada e limpa */
-        gap: 18px;
-        padding: 10px;
-    }
-}
-
-
-/* MENU DROPDOWN DE PERFIL (ESTILO ULIFE)    */
-.dropdown-perfil {
-    position: absolute;
-    top: 70px; /* Posiciona logo abaixo da foto do header */
-    right: 40px; /* Alinha com a margem direita */
-    background-color: var(--areia);
-    border: 2px solid var(--azul-profundo);
-    border-radius: 16px;
-    width: 260px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* Sombra elegante para parecer flutuante */
-    display: none; /* Começa escondido */
-    flex-direction: column;
-    z-index: 9999; /* Garante que fique por cima de tudo no site */
-    overflow: hidden;
-}
-
-/* Classe ativada pelo JS para mostrar o menu */
-.dropdown-perfil.mostrar {
-    display: flex;
-}
-
-.dropdown-header {
-    padding: 20px;
-    background-color: rgba(0,0,0,0.03);
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.dropdown-header img { 
-    width: 60px; 
-    height: 60px; 
-    border-radius: 50%; 
-    margin-bottom: 10px; 
-    object-fit: cover;
-    border: 2px solid var(--azul-profundo);
-}
-
-.dropdown-header h4 { color: var(--azul-profundo); margin: 0; font-size: 1.1rem; }
-.dropdown-header p { color: var(--preto-lexi); margin: 0; font-size: 0.85rem; opacity: 0.8; }
-
-.dropdown-body { display: flex; flex-direction: column; padding: 10px 0; }
-
-.dropdown-item {
-    padding: 12px 20px;
-    color: var(--preto-lexi);
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: none;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    font-size: 0.95rem;
-    transition: 0.2s;
-}
-
-.dropdown-item:hover { 
-    background-color: rgba(230, 146, 91, 0.15); /* Fundo laranjinha suave ao passar o mouse */
-    color: var(--laranja); 
-}
-
-.dropdown-divisor { 
-    height: 1px; 
-    background-color: rgba(0,0,0,0.1); 
-    margin: 5px 0; 
 }

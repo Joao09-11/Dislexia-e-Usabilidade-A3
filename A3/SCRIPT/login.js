@@ -1,26 +1,39 @@
-// Exemplo de como dar a "Pulseira VIP" no login.js
-const btnEntrar = document.getElementById('btn-login'); // Ajuste para o ID do seu botão
+const botaoOlho = document.getElementById('toggleSenha');
+const campoSenha = document.getElementById('input-senha');
 
+if (botaoOlho && campoSenha) {
+    botaoOlho.addEventListener('click', function () {
+        if (campoSenha.type === 'password') {
+            campoSenha.type = 'text';
+            this.src = 'ICON/iconOlhoAberto.png';  
+            this.setAttribute('aria-expanded', 'true');
+            this.setAttribute('aria-label', 'Ocultar senha, exibindo em formato de pontos');
+        } else {
+            campoSenha.type = 'password';
+            this.src = 'ICON/iconOlhoFechado.webp';             
+            this.setAttribute('aria-expanded', 'false');
+            this.setAttribute('aria-label', 'Mostrar senha em formato de texto legível');
+        }
+    });
+    botaoOlho.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault(); 
+            this.click(); 
+        }
+    });
+}
+const btnEntrar = document.getElementById('btn-login');
 if (btnEntrar) {
     btnEntrar.addEventListener('click', (evento) => {
-        evento.preventDefault(); // Evita que a página recarregue do jeito antigo
-        
-        // Salva a pulseira VIP no navegador
+        evento.preventDefault(); 
         localStorage.setItem('usuarioLogado', 'perfil1'); 
-        
-        // Manda o usuário para a tela principal
         window.location.href = 'lexi.html'; 
     });
 }
-// Exemplo de como tirar a "Pulseira VIP"
-const btnSair = document.getElementById('btn-sair-conta'); // Ajuste para o ID do seu botão no lexi.html
-
+const btnSair = document.getElementById('btn-sair-conta');
 if (btnSair) {
     btnSair.addEventListener('click', () => {
-        // Remove o usuário do navegador
         localStorage.removeItem('usuarioLogado'); 
-        
-        // Manda de volta para a tela de login
         window.location.href = 'login.html'; 
     });
 }
