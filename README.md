@@ -48,9 +48,14 @@ Foram realizadas entrevistas com 8 usuários para avaliar a usabilidade da plata
   <img src="/preview.png" alt="Preview do projeto" width="600">
 </p>
 
-- Versão final:
+- Versão melhorada:
 <p align="center">
   <img src="/evolução.png" alt="Preview do projeto" width="600">
+</p>
+
+- Versão final:
+<p align="center">
+  <img src="/resultado-final.png" alt="Preview do projeto" width="600">
 </p>
 
 ## Autor
