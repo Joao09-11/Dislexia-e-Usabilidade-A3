@@ -1,0 +1,73 @@
+body.tema-caramelo {
+    --fundo-amarelo: #FDF8E7;    
+    --preview-fundo: #FFF4B3;    
+    --header-dislexia: #F2DF80;  
+    --areia: #FFFCF2;            
+    --laranja: #DDA13E;          
+    --azul-profundo: #B07D2B;    
+    --preto-lexi: #261C00; 
+    --cor-destaque: #F4A261;      
+}
+
+body.tema-barro {
+    --fundo-amarelo: #FDF1E6;    
+    --preview-fundo: #FFDAB9;    
+    --header-dislexia: #F0B28C;  
+    --areia: #FFF6ED;            
+    --laranja: #DF8050;           
+    --azul-profundo: #BF5D30;     
+    --preto-lexi: #331408; 
+    --cor-destaque: #E9C46A;       
+}
+
+body.tema-arara {
+    --fundo-amarelo: #EAF2F8;     
+    --preview-fundo: #D0E1F0;     
+    --header-dislexia: #A9CCE3;   
+    --areia: #F4F9F9;             
+    --laranja: #5499C7;           
+    --azul-profundo: #2980B9;     
+    --preto-lexi: #0A192F; 
+    --cor-destaque: #FFF4B3;       
+}
+
+body.tema-cinza {
+    --fundo-amarelo: #F4F4F4;    
+    --preview-fundo: #E8E8E8;    
+    --header-dislexia: #DDDDDD;   
+    --areia: #FAFAFA;             
+    --laranja: #888888;           
+    --azul-profundo: #555555;     
+    --preto-lexi: #222222; 
+    --cor-destaque: #FFF4B3;      
+}
+
+body.tema-noturno {
+    --fundo-amarelo: #121212;     
+    --preview-fundo: #1E1E1E;     
+    --header-dislexia: #181818;   
+    --areia: #E0E0E0;             
+    --laranja: #2A2A2A;           
+    --azul-profundo: #333333;     
+    --preto-lexi: #F0F0F0; 
+    --cor-destaque: #8C731F;       
+}
+
+body.tema-daltonico {
+    --fundo-amarelo: #FAF4D3;    
+    --preview-fundo: #FFFFFF;    
+    --header-dislexia: #1B365D;
+    --areia: #FFFFFF;
+    --azul-profundo: #11223B;
+    --laranja: #0077C2;
+    --preto-lexi: #0A0A0A;        
+}
+
+/* --- EXCEÇÕES DO TEMA NOTURNO --- */
+body.tema-noturno .app-footer {
+    background-color: var(--preview-fundo); /* Usa um tom escuro do próprio tema noturno */
+}
+body.tema-noturno .tag-formato {
+    background-color: var(--laranja); /* No tema noturno, o laranja vira um cinza bem escuro (#2A2A2A) */
+    color: var(--preto-lexi); /* E o texto fica claro (#F0F0F0), gerando um contraste perfeito */
+}

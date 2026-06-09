@@ -1,0 +1,170 @@
+.card-login h2 { 
+    text-align: left; 
+    margin: 0; 
+}
+
+.label-login { 
+    text-align: left; 
+    font-weight: bold; 
+    font-size: 0.8rem;
+    color: var(--preto-lexi);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.caixa-login-ev {
+    background-color: var(--areia);
+    border: 1px solid var(--header-dislexia); 
+    width: 900px;
+    max-width: 90%;
+    min-height: 450px;
+    border-radius: 10px;
+    display: flex; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    padding: 40px;
+}
+
+.lado-form {
+    flex: 1; 
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lado-social {
+    flex: 1; 
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.input-senha-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px; 
+}
+
+.input-senha-container .input-login {
+    margin-bottom: 0 !important; 
+    padding-right: 45px !important;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%); 
+    z-index: 10;
+    user-select: none;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.eye-icon:hover {
+    opacity: 1;
+}
+
+.input-login {
+    width: 100%; 
+    padding: 12px;
+    padding-right: 45px !important; 
+    border: none; 
+    border-radius: 8px;
+    background-color: var(--areia) !important; 
+    border: 1px solid var(--header-dislexia) !important;
+    color: var(--preto-lexi) !important;
+}
+
+.input-login:focus {
+    outline: 2px solid var(--cor-destaque);
+}
+
+.btn-entrar {
+    width: 100%; 
+    padding: 12px;
+    border: none; 
+    border-radius: 8px;
+    font-weight: bold; 
+    cursor: pointer;
+    background-color: var(--laranja) !important;
+    color: var(--preto-lexi) !important;
+    transition: 0.2s;
+}
+
+.btn-entrar:hover {
+    background-color: var(--azul-profundo) !important; 
+}
+
+.btn-social {
+    background-color: var(--areia) !important;
+    border: 2px solid var(--azul-profundo) !important;
+    color: var(--preto-lexi) !important;
+    transition: 0.2s;
+    font-weight: bold; 
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-family: var(--fonte-global);
+    width: 100%; 
+    padding: 12px;
+    border: none; 
+    border-radius: 8px;
+}
+
+.btn-social:hover {
+    background-color: var(--azul-profundo) !important;
+}
+
+.divisor-meio {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    justify-content: center;
+}
+
+.linha-vertical {
+    height: 100%;
+    width: 2px;
+    background-color: var(--laranja); 
+    opacity: 0.6;
+}
+
+.bolinha-ou {
+    position: absolute;
+    background-color: var(--areia); 
+    padding: 10px;
+    font-weight: bold;
+    color: var(--preto-lexi);
+}
+
+.divisor-ou { 
+    text-align: center !important; 
+    font-weight: bold; 
+    margin: 10px 0 !important;
+    color: var(--preto-lexi);
+}
+
+@media screen and (max-width: 768px) {
+    .caixa-login-ev {
+        flex-direction: column; 
+        width: 95%;
+        padding: 30px 20px;
+    }
+    .lado-form, .lado-social {
+        padding: 0; 
+        width: 100%;
+    }
+    .divisor-meio {
+        width: 100%;
+        height: 40px;
+        flex-direction: row; 
+        margin: 30px 0;
+    }
+    .linha-vertical {
+        width: 100%;
+        height: 2px;
+    }
+}

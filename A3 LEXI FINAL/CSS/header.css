@@ -1,0 +1,84 @@
+.main-header {
+    background-color: var(--header-dislexia);
+    height: 110px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0 40px;
+}
+
+.logo-area{ position: static; transform: none; padding-left: 15px;}
+
+.logo-link {
+    font-family: 'OpenDyslexic', sans-serif; 
+    font-size: 1.8rem; 
+    color: var(--preto-lexi); 
+    text-decoration: none; 
+    letter-spacing: normal;
+    word-spacing: normal;
+    transition: opacity 0.2s;
+}
+.logo-link:hover {
+    opacity: 0.8;
+}
+.avatar-user { 
+    width: 55px; 
+    height: 55px; 
+    border-radius: none;
+}
+
+.btn-acesso-header {
+    background-color: var(--laranja);
+    border: 2px solid var(--laranja);
+    color: var(--preto-lexi);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-cadastro-header {
+    background-color: var(--azul-profundo);
+    border: 2px solid var(--azul-profundo);
+    color: var(--areia);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-acesso-header:hover {
+    background-color: transparent;
+    border-color: var(--laranja);
+    color: var(--preto-lexi);
+}
+
+.btn-cadastro-header:hover {
+    background-color: transparent;
+    border-color: var(--azul-profundo);
+    color: var(--preto-lexi);
+}
+
+@media screen and (max-width: 768px) {
+    .btn-acesso-header, .btn-cadastro-header { display: none !important; }
+    .icone-perfil-mobile { display: block !important; }
+    .logo-area { position: static; transform: none; }
+    .header-content { padding: 0 20px; }
+}

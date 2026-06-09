@@ -1,0 +1,94 @@
+.container-perfil-header {
+    position: relative; 
+    display: flex; 
+    align-items: center;
+}
+
+.avatar-botao-perfil {
+    cursor: pointer; 
+    background-color: var(--azul-profundo); 
+    padding: 4px; 
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.avatar-foto-header {
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    display: block;
+}
+
+.btn-sair-vermelho {
+    color: #D32F2F !important;
+}
+
+.dropdown-perfil {
+    position: fixed;
+    top: 110px;
+    right: 0;             
+    background-color: var(--areia);
+    border: 2px solid var(--azul-profundo);
+    border-radius: 10px;
+    width: 250px;
+    display: none; 
+    flex-direction: column;
+    z-index: 99999; 
+}
+
+.dropdown-perfil.mostrar {
+    display: flex !important;
+}
+
+.dropdown-header {
+    padding: 20px;
+    background-color: rgba(0,0,0,0.03);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dropdown-header img { 
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
+    margin-bottom: 10px; 
+    object-fit: cover;
+    border: 2px solid var(--azul-profundo);
+}
+
+.dropdown-header h4 { color: var(--azul-profundo); margin: 0 0 5px 0; font-size: 1.1rem; }
+.dropdown-header p { color: var(--preto-lexi); margin: 0; font-size: 0.85rem; opacity: 0.8; }
+
+.dropdown-body { display: flex; flex-direction: column; padding: 10px 0; }
+
+.dropdown-item {
+    padding: 12px 20px;
+    color: var(--preto-lexi);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover { 
+    background-color: rgba(230, 146, 91, 0.15); 
+    color: var(--laranja); 
+}
+
+.dropdown-divisor { 
+    height: 1px; 
+    background-color: rgba(0,0,0,0.1); 
+    margin: 5px 0; 
+}

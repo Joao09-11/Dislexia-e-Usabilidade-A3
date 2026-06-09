@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('../FONTES/OpenDyslexic-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Sylexiad';
+    src: url('../FONTES/SylexiadSerifThin.otf') format('truetype');
+}
+
+:root { 
+    /* Cores */
+    --fundo-amarelo: #FDF5C9; 
+    --header-dislexia: #F2E394;
+    --azul-profundo: #2C5282; 
+    --laranja: #E6925B;  
+    --areia: #FAF9F6;
+    --preto-lexi: #0D0D0D; 
+    --preview-fundo: #FFF9E6;
+    --cor-destaque: #FFE066;
+    --fonte-global: 'Verdana', sans-serif;
+    --tamanho-global: 14px;
+    --letras-global: 0.05em;
+    --palavras-global: 0.1em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--fundo-amarelo); 
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    }
+
+body, button, input, select, textarea {
+    font-family: var(--fonte-global); 
+    font-size: var(--tamanho-global);
+    letter-spacing: var(--letras-global);
+    word-spacing: var(--palavras-global);
+    line-height: 1.5;
+    color: var(--preto-lexi);
+}
+
+.titulo-tela {
+    color: var(--azul-profundo);
+    font-family: 'OpenDyslexic', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+}
+
+.btn-laranja-fixo, .btn-tema { 
+    background-color: var(--laranja);
+    border: none;
+    color: var(--preto-lexi);
+    border-radius: 8px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+    padding: 10px 15px; 
+    font-size: 0.95rem; 
+}
+
+.btn-laranja-fixo:hover, .btn-tema:hover { 
+    background-color: var(--azul-profundo);
+}
+
+.app-container { 
+    display: flex; 
+    flex: 1;
+    }
+
+.content-area { 
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 110px;
+    margin-left: 85px;
+    min-height: calc(100vh - 110px);
+}
+
+.app-footer { 
+    text-align: center; 
+    padding: 25px 20px; 
+    font-weight: bold;
+    background-color: var(--areia); 
+    margin-top: auto;
+    width: calc(100% - 85px); 
+    margin-left: 85px; 
+}
+
+@media screen and (max-width: 768px) {
+    .content-area { margin-top: 110px !important; margin-left: 65px !important; padding-bottom: 30px !important; }
+    #sidebar-principal.aberta + .content-area { margin-left: 65px !important; }
+    
+    .app-footer { 
+        margin-bottom: 0 !important; 
+        padding: 30px 20px !important; 
+        width: calc(100% - 65px) !important;
+        margin-left: 65px !important; 
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
