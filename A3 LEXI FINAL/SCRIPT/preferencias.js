@@ -181,7 +181,7 @@ if (btnSalvar) {
     btnSalvar.onclick = () => {
         const estaLogado = localStorage.getItem('sessaoAtiva') === 'sim';
         if (!estaLogado) {
-            alert("Atenção: Você precisa estar conectado a uma conta para salvar suas preferências!");
+            alert("Atenção! Você precisa estar conectado a uma conta para salvar suas preferências!");
             return;
         }
         localStorage.setItem('user_p', JSON.stringify({ tamanho: sz, espaco: ls, altura: lh }));
@@ -223,7 +223,7 @@ if (btnResetar) {
 
         localStorage.removeItem('user_p');
         localStorage.removeItem('user_tema'); 
-        alert("AS preferências foram restauradas - Padrão Lexi!");
+        alert("As preferências foram restauradas para Lexi Padrão!");
     };
 }
 (() => {

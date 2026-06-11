@@ -113,42 +113,17 @@
 
 @media screen and (max-width: 768px) {
     .book-grid {
-        padding: 15px !important; gap: 12px !important;
+        padding: 15px !important; gap: 10px !important;
         grid-template-columns: repeat(2, 1fr) !important;
     }
-    .book-cover { 
-        border-radius: 10px; 
-        aspect-ratio: 5 / 6; 
-    }
-    .card-title-area { 
-        padding: 10px; 
-    }
-    .card-title-area h3 {
-        font-size: 1rem; 
-        margin-bottom: 5px;
-    }
-    .card-title-area p {
-        font-size: 0.8rem; 
-    }
-    .tag-formato { 
-        bottom: 10px;
-        right: 10px;
-        padding: 2px 5px;
-        border-radius: 5px;
-    }
-    .carrossel-titulo { 
-        padding-left: 15px; 
-        font-size: 1.3rem; 
-        margin-bottom: 10px;
-    }
-    .carrossel-wrapper { 
-        padding: 0 15px; 
-    }
-    .carrossel-track { 
-        gap: 15px;
-    }
-    .carrossel-track .book-card { 
-        flex: 0 0 140px; 
-    } 
-    .btn-scroll { display: none; } 
+    .book-cover { border-radius: 10px; aspect-ratio: 5 / 6; }
+    .card-title-area { padding: 10px; }
+    .card-title-area h3 { font-size: 0.8rem !important; margin-bottom: 5px; }
+    .card-title-area p { font-size: 0.6rem !important; }
+    .tag-formato { bottom: 10px; right: 10px; padding: 2px 5px; border-radius: 5px; }
+    .carrossel-titulo { padding-left: 15px; font-size: 1.4rem; margin-bottom: 10px; }
+    .carrossel-wrapper { padding: 0 10px; }
+    .carrossel-track { gap: 12px; }
+    .carrossel-track .book-card { flex: 0 0 115px !important } 
+    .btn-scroll { display: none; }
 }

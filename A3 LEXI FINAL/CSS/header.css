@@ -79,6 +79,7 @@
 @media screen and (max-width: 768px) {
     .btn-acesso-header, .btn-cadastro-header { display: none !important; }
     .icone-perfil-mobile { display: block !important; }
-    .logo-area { position: static; transform: none; }
+    .logo-area { position: static; transform: none; padding-left: 0 !important; }
+    .logo-link {font-size: 1.3rem;}
     .header-content { padding: 0 20px; }
 }

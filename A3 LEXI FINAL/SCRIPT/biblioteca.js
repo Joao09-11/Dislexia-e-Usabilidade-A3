@@ -1,6 +1,5 @@
 const inputBuscaBiblio = document.getElementById('input-busca-biblio');
-const selectGeneroBiblio = document.getElementById('filtro-genero-biblio');
-const selectAnoBiblio = document.getElementById('filtro-ano-biblio');
+const selectTipoBiblio = document.getElementById('filtro-tipo-biblio');
 const controlesBiblio = document.getElementById('controles-biblioteca');
 const gridBiblio = document.getElementById('grid-minha-biblioteca');
 
@@ -14,7 +13,7 @@ function renderizarMinhaBiblioteca() {
         
         gridBiblio.innerHTML = `
             <div class="aviso-login" style="grid-column: 1 / -1; text-align: center; padding: 60px; max-width: 500px; margin: 0 auto; background: var(--preview-fundo); border-radius: 20px; border: 2px dashed var(--azul-profundo);">
-                <h3 style="font-family: 'OpenDyslexic', sans-serif; font-size: 1.6rem; color: var(--azul-profundo); margin-bottom: 15px;">Sua estante está vazia!</h3>
+                <h3 style="font-family: 'OpenDyslexic', sans-serif; font-size: 1.6rem; color: var(--azul-profundo); margin-bottom: 15px;">Acesso Restrito</h3>
                 <p style="margin-bottom: 30px; font-size: 1.2rem; line-height: 1.6; font-family: var(--fonte-global); letter-spacing: var(--letras-global); word-spacing: var(--palavras-global); color: var(--preto-lexi)">Faça login ou crie uma conta para acessar sua Biblioteca.</p>
                 <a href="login.html" class="btn-tema" style="display: inline-block; padding: 1px 30px; text-decoration: none; font-weight: bold; line-height: 45px; height: 45px;">Entrar agora</a>
             </div>
@@ -30,8 +29,7 @@ function filtrarMinhaEstante() {
     if (!gridBiblio) return;
 
     const termo = inputBuscaBiblio ? inputBuscaBiblio.value.trim().toLowerCase() : "";
-    const genero = selectGeneroBiblio ? selectGeneroBiblio.value.toLowerCase() : "todos";
-    const ano = selectAnoBiblio ? selectAnoBiblio.value : "todos";
+    const tipo = selectTipoBiblio ? selectTipoBiblio.value : "todos";
 
     gridBiblio.innerHTML = "";
     let encontrouAlgum = false;
@@ -42,11 +40,19 @@ function filtrarMinhaEstante() {
         const livro = CATALOGO_LIVROS.find(l => l.id === itemUsuario.idLivro);
         
         if (livro) {
-            const bateuTexto = termo === "" || livro.titulo.toLowerCase().includes(termo) || livro.autor.toLowerCase().includes(termo);
-            const bateuGenero = genero === "todos" || livro.genero.toLowerCase() === genero;
-            const bateuAno = ano === "todos" || livro.ano.toString() === ano;
+            let bateu = false;
+            
+            if (tipo === 'todos') {
+                bateu = termo === "" || livro.titulo.toLowerCase().includes(termo) || livro.autor.toLowerCase().includes(termo) || livro.genero.toLowerCase().includes(termo);
+            } else if (tipo === 'titulo') {
+                bateu = termo === "" || livro.titulo.toLowerCase().includes(termo);
+            } else if (tipo === 'autor') {
+                bateu = termo === "" || livro.autor.toLowerCase().includes(termo);
+            } else if (tipo === 'genero') {
+                bateu = termo === "" || livro.genero.toLowerCase().includes(termo);
+            }
 
-            if (bateuTexto && bateuGenero && bateuAno) {
+            if (bateu) {
                 encontrouAlgum = true;
                 
                 let tagFormato = "";
@@ -79,5 +85,4 @@ function filtrarMinhaEstante() {
 }
 
 if (inputBuscaBiblio) inputBuscaBiblio.addEventListener('input', filtrarMinhaEstante);
-if (selectGeneroBiblio) selectGeneroBiblio.addEventListener('change', filtrarMinhaEstante);
-if (selectAnoBiblio) selectAnoBiblio.addEventListener('change', filtrarMinhaEstante);
+if (selectTipoBiblio) selectTipoBiblio.addEventListener('change', filtrarMinhaEstante);

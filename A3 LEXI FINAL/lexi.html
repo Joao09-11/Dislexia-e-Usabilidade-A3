@@ -75,91 +75,37 @@
 
 <section id="tela-pesquisa" style="display: none; padding: 20px;">
 <h2 class="titulo-tela">Explorar Catálogo</h2>
-<div class="controles-pesquisa">
-        <label for="input-busca-biblio" class="sr-only">Buscar livro</label>
-        <input type="text" id="input-busca-geral" placeholder="Buscar livros por título, ano ou gênero...">
-        
-        <div class="filtros-avancados">
-            <label for="filtro-genero" class="sr-only">Filtrar por gênero</label>
-            <select id="filtro-genero">
-                <option value="todos">Todos os Gêneros</option>
-                <option value="classicos">Clássicos</option>
-                <option value="documentos">Documentos</option>
-                <option value="ensino">Ensino</option>
-                <option value="fantasia">Fantasia</option>
-                <option value="ficcao">Ficção</option>
-                <option value="filosofia">Filosofia</option>
-                <option value="romance">Romance</option>
-                <option value="sociedade">Sociedade</option>
-                <option value="terror">Terror</option>
-            </select>
-
-            <label for="filtro-ano" class="sr-only">Filtrar por ano</label>
-            <select id="filtro-ano">
-                <option value="todos">Qualquer Ano</option>
-                <option value="1943">1943</option>
-                <option value="1949">1949</option>
-                <option value="1977">1977</option>
-                <option value="2000">2000</option>
-                <option value="2005">2005</option>
-                <option value="2020">2020</option>
-                <option value="2022">2022</option>
-                <option value="2025">2025</option>
-                <option value="2026">2026</option>
-            </select>
-
-            <label for="filtro-autor" class="sr-only">Filtrar por autor</label>
-            <select id="filtro-autor">
-                <option value="todos">Qualquer Autor</option>
-                <option value="george orwell">George Orwell</option>
-                <option value="stephen king">Stephen King</option>
-                <option value="ailton krenak">Ailton Krenak</option>
-                <option value="machado">Machado de Assis</option>
-                <option value="clarice">Clarice Lispector</option>
-            </select>
-
-            <button id="btn-aplicar-filtros-biblio" class="btn-laranja-fixo">Filtrar</button>
-        </div>
+<div class="busca-integrada">
+        <label for="input-busca-geral" class="sr-only">O que você está procurando?</label>
+        <input type="text" id="input-busca-geral" placeholder="O que você está procurando?">
+        <div class="divisor"></div>
+        <label for="filtro-tipo-busca" class="sr-only">Filtrar por</label>
+        <select id="filtro-tipo-busca">
+            <option value="todos">Todos</option>
+            <option value="titulo">Título</option>
+            <option value="autor">Autor</option>
+            <option value="genero">Gênero</option>
+        </select>
+        <button id="btn-aplicar-filtros" class="btn-buscar-lupa" aria-label="Buscar"><img src="ICON/iconLupa.png" alt=""></button>
     </div>
 <div id="resultados-pesquisa" class="book-grid"></div>
 </section>
     
 <!-- TELA BIBLIOTECA -->
-<section id="tela-minha-biblioteca" style="display: none; padding: 20px;">
+<section id="tela-minha-biblioteca" style="display: none; padding: 20px; width: 100%;">
 <h2 class="titulo-tela">Minha Estante</h2>
-    <div class="controles-pesquisa" id="controles-biblioteca" style="display: none;">
+<div class="busca-integrada" id="controles-biblioteca" style="display: none;">
         <label for="input-busca-biblio" class="sr-only">Buscar na minha estante</label>
         <input type="text" id="input-busca-biblio" placeholder="Buscar na minha estante...">
-        <div class="filtros-avancados">
-            <label for="filtro-genero-biblio" class="sr-only">Filtrar por gênero na estante</label>
-            <select id="filtro-genero-biblio">
-                <option value="todos">Todos os Gêneros</option>
-                <option value="classicos">Clássicos</option>
-                <option value="documentos">Documentos</option>
-                <option value="ensino">Ensino</option>
-                <option value="fantasia">Fantasia</option>
-                <option value="ficcao">Ficção</option>
-                <option value="filosofia">Filosofia</option>
-                <option value="romance">Romance</option>
-                <option value="sociedade">Sociedade</option>
-                <option value="terror">Terror</option>
-            </select>
-
-            <label for="filtro-ano-biblio" class="sr-only">Filtrar por ano na estante</label>
-            <select id="filtro-ano-biblio">
-                <option value="todos">Qualquer Ano</option>
-                <option value="1943">1943</option>
-                <option value="1949">1949</option>
-                <option value="1977">1977</option>
-                <option value="2000">2000</option>
-                <option value="2005">2005</option>
-                <option value="2020">2020</option>
-                <option value="2022">2022</option>
-                <option value="2025">2025</option>
-                <option value="2026">2026</option>
-            </select>
-            <button id="btn-aplicar-filtros-biblio" class="btn-laranja-fixo">Filtrar</button>
-        </div>
+        <div class="divisor"></div>
+        <label for="filtro-tipo-biblio" class="sr-only">Filtrar por</label>
+        <select id="filtro-tipo-biblio">
+            <option value="todos">Todos</option>
+            <option value="titulo">Título</option>
+            <option value="autor">Autor</option>
+            <option value="genero">Gênero</option>
+        </select>
+        <button id="btn-aplicar-filtros-biblio" class="btn-buscar-lupa" aria-label="Buscar"><img src="ICON/iconLupa.png" alt=""></button>
     </div>
 <div id="grid-minha-biblioteca" class="book-grid"></div>
 </section>

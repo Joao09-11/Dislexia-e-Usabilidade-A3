@@ -1,44 +1,76 @@
-.busca-container {
+.busca-integrada {
     display: flex;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-    border: 3px solid var(--azul-profundo);
-    border-radius: 30px;
-    overflow: hidden;
+    align-items: center;
     background-color: var(--areia);
-}
-
-.input-busca {
-    flex: 1;
-    border: none;
-    padding: 15px 25px;
-    font-size: 1.2rem;
-    background-color: transparent;
-    outline: none;
-}
-
-.btn-busca {
-    background-color: var(--azul-profundo);
-    border: none;
-    padding: 0 30px;
-    font-size: 1.5rem;
-    cursor: pointer;
+    border: 2px solid var(--azul-profundo);
+    border-radius: 30px;
+    padding: 5px 15px;
+    max-width: 800px;
+    margin: 20px auto 40px auto;
+    width: 100%;
     transition: 0.3s;
 }
 
-.btn-busca:hover { background-color: var(--laranja); }
+.busca-integrada:focus-within {
+    border-color: var(--laranja);
+    box-shadow: 0 0 12px rgba(230, 146, 91, 0.2);
+}
 
-.controles-pesquisa {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    margin: 35px 50px;
-    max-width: 1000px;
-    background-color: transparent;
+.busca-integrada input {
+    flex: 1;
     border: none;
-    padding: 0;
-    box-shadow: none;
+    background: transparent;
+    padding: 12px;
+    font-size: 1.1rem;
+    color: var(--preto-lexi);
+    outline: none;
+}
+
+.busca-integrada .divisor {
+    width: 1px;
+    height: 30px;
+    background-color: var(--azul-profundo);
+    opacity: 0.3;
+    margin: 0 10px;
+}
+
+.busca-integrada select {
+    border: none;
+    background: transparent;
+    color: var(--azul-profundo);
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    padding: 10px;
+}
+
+.busca-integrada .btn-buscar-lupa {
+    background-color: var(--laranja);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-left: 5px;
+}
+
+.busca-integrada .btn-buscar-lupa img {
+    width: 20px; 
+    filter: brightness(0) invert(1);
+}
+
+.busca-integrada .btn-buscar-lupa:hover { background-color: var(--azul-profundo); }
+
+@media screen and (max-width: 768px) {
+    .busca-integrada { flex-direction: column; border-radius: 20px; padding: 15px; align-items: stretch; margin: 1px 1.5px 3px 1.spx; width: auto; }
+    .busca-integrada .divisor { display: none; }
+    .busca-integrada select { border-top: 1px solid rgba(0,0,0,0.1); padding-top: 15px; margin: 10px 0; }
+    .busca-integrada .btn-buscar-lupa { width: 100%; border-radius: 10px; margin-left: 0; }
 }
 
 .controles-pesquisa input[type="text"] {
@@ -57,32 +89,6 @@
     border-color: var(--laranja);
     background-color:var(--areia);
     box-shadow: 0 0 12px rgba(230, 146, 91, 0.2);
-}
-
-.filtros-avancados {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.filtros-avancados select {
-    flex: 1;
-    min-width: 160px;
-    padding: 14px 20px;
-    border-radius: 10px;
-    border: 2px solid var(--azul-profundo);
-    font-weight: bold;
-    color: var(--azul-profundo);
-    background-color: var(--areia);
-    cursor: pointer;
-    font-size: 0.95rem;
-    outline: none;
-    transition: 0.3s;
-}
-
-.filtros-avancados select:focus {
-    border-color: var(--laranja);
 }
 
 #btn-aplicar-filtros, #btn-aplicar-filtros-biblio {
