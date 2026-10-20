@@ -50,7 +50,12 @@ body {
     padding-left: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center !important;
+}
+
+.lado-social h3 {
+    margin-top: 0 !important; 
+    margin-bottom: 20px !important;
 }
 
 .input-senha-container {
