@@ -1,6 +1,16 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--fundo-amarelo);
+    margin: 0;
+}
+
 .card-login h2 { 
     text-align: left; 
-    margin: 0; 
+    margin: 0 0 15px 0; 
 }
 
 .label-login { 
@@ -17,11 +27,14 @@
     border: 1px solid var(--header-dislexia); 
     width: 900px;
     max-width: 90%;
-    min-height: 450px;
+    height: auto !important;
+    min-height: unset !important;
     border-radius: 10px;
     display: flex; 
+    align-items: stretch; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
     padding: 40px;
+    box-sizing: border-box;
 }
 
 .lado-form {
@@ -29,7 +42,7 @@
     padding-right: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .lado-social {
@@ -37,7 +50,7 @@
     padding-left: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .input-senha-container {
@@ -70,12 +83,12 @@
 .input-login {
     width: 100%; 
     padding: 12px;
-    padding-right: 45px !important; 
-    border: none; 
+    padding-right: 45px !important;
     border-radius: 8px;
     background-color: var(--areia) !important; 
     border: 1px solid var(--header-dislexia) !important;
     color: var(--preto-lexi) !important;
+    margin-bottom: 15px;
 }
 
 .input-login:focus {
@@ -105,16 +118,16 @@
     transition: 0.2s;
     font-weight: bold; 
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-family: var(--fonte-global);
     width: 100%; 
     padding: 12px;
-    border: none; 
     border-radius: 8px;
 }
 
 .btn-social:hover {
     background-color: var(--azul-profundo) !important;
+    color: var(--areia) !important;
 }
 
 .divisor-meio {
